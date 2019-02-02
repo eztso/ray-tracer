@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <cmath>
 #include "../ui/TraceUI.h"
+#include "glm/ext.hpp"
+#include <iostream>
 extern TraceUI* traceUI;
 
 using namespace std;
@@ -96,8 +98,36 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE
 	//
 	// FIXME: Add ray-trimesh intersection
+    const auto& a = this->parent->vertices[ids[0]];
+    const auto& b = this->parent->vertices[ids[1]];
+    const auto& c = this->parent->vertices[ids[2]];
 
-	return false;
+    if(abs(glm::dot(normal, r.getDirection())) < RAY_EPSILON)
+    	return false;
+
+    double time_of_intersect = glm::dot(normal, (b - r.getPosition())) / glm::dot(normal, r.getDirection());
+
+    if(time_of_intersect < RAY_EPSILON)
+    	return false;
+
+    // point on plane of triangle
+    auto P = r.getPosition() + r.getDirection() * time_of_intersect;
+
+    // Formula from slides
+    if((glm::dot((glm::cross((b - a), (P - a))), normal)) < 0)
+    	return false;
+    if((glm::dot((glm::cross((c - b), (P - b))), normal)) < 0)
+    	return false;
+    if((glm::dot((glm::cross((a - c), (P - c))), normal)) < 0)
+    	return false;
+
+
+	i.setObject(this);
+	i.setMaterial(this->getMaterial());
+	i.setT(time_of_intersect);
+	i.setN(normal);
+    // Check if 
+    return true;
 }
 
 // Once all the verts and faces are loaded, per vertex normals can be

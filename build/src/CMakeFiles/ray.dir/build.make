@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /u/eztso/Documents/CS378H/ray
+CMAKE_SOURCE_DIR = /u/michael/CS378h/cs378p1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /u/eztso/Documents/CS378H/ray/build
+CMAKE_BINARY_DIR = /u/michael/CS378h/cs378p1/build
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/ray.dir/depend.make
@@ -59,16 +59,16 @@ include src/CMakeFiles/ray.dir/flags.make
 
 src/CMakeFiles/ray.dir/RayTracer.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/RayTracer.cpp.o: ../src/RayTracer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/ray.dir/RayTracer.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/RayTracer.cpp.o -c /u/eztso/Documents/CS378H/ray/src/RayTracer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/ray.dir/RayTracer.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/RayTracer.cpp.o -c /u/michael/CS378h/cs378p1/src/RayTracer.cpp
 
 src/CMakeFiles/ray.dir/RayTracer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/RayTracer.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/RayTracer.cpp > CMakeFiles/ray.dir/RayTracer.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/RayTracer.cpp > CMakeFiles/ray.dir/RayTracer.cpp.i
 
 src/CMakeFiles/ray.dir/RayTracer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/RayTracer.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/RayTracer.cpp -o CMakeFiles/ray.dir/RayTracer.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/RayTracer.cpp -o CMakeFiles/ray.dir/RayTracer.cpp.s
 
 src/CMakeFiles/ray.dir/RayTracer.cpp.o.requires:
 
@@ -83,16 +83,16 @@ src/CMakeFiles/ray.dir/RayTracer.cpp.o.provides.build: src/CMakeFiles/ray.dir/Ra
 
 src/CMakeFiles/ray.dir/main.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/ray.dir/main.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/main.cpp.o -c /u/eztso/Documents/CS378H/ray/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/ray.dir/main.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/main.cpp.o -c /u/michael/CS378h/cs378p1/src/main.cpp
 
 src/CMakeFiles/ray.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/main.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/main.cpp > CMakeFiles/ray.dir/main.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/main.cpp > CMakeFiles/ray.dir/main.cpp.i
 
 src/CMakeFiles/ray.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/main.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/main.cpp -o CMakeFiles/ray.dir/main.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/main.cpp -o CMakeFiles/ray.dir/main.cpp.s
 
 src/CMakeFiles/ray.dir/main.cpp.o.requires:
 
@@ -107,16 +107,16 @@ src/CMakeFiles/ray.dir/main.cpp.o.provides.build: src/CMakeFiles/ray.dir/main.cp
 
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o: ../src/fileio/bitmap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/bitmap.cpp.o -c /u/eztso/Documents/CS378H/ray/src/fileio/bitmap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/bitmap.cpp.o -c /u/michael/CS378h/cs378p1/src/fileio/bitmap.cpp
 
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/fileio/bitmap.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/fileio/bitmap.cpp > CMakeFiles/ray.dir/fileio/bitmap.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/fileio/bitmap.cpp > CMakeFiles/ray.dir/fileio/bitmap.cpp.i
 
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/fileio/bitmap.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/fileio/bitmap.cpp -o CMakeFiles/ray.dir/fileio/bitmap.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/fileio/bitmap.cpp -o CMakeFiles/ray.dir/fileio/bitmap.cpp.s
 
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o.requires:
 
@@ -131,16 +131,16 @@ src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o.provides.build: src/CMakeFiles/ray.di
 
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.o: ../src/fileio/buffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/ray.dir/fileio/buffer.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/buffer.cpp.o -c /u/eztso/Documents/CS378H/ray/src/fileio/buffer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/ray.dir/fileio/buffer.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/buffer.cpp.o -c /u/michael/CS378h/cs378p1/src/fileio/buffer.cpp
 
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/fileio/buffer.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/fileio/buffer.cpp > CMakeFiles/ray.dir/fileio/buffer.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/fileio/buffer.cpp > CMakeFiles/ray.dir/fileio/buffer.cpp.i
 
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/fileio/buffer.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/fileio/buffer.cpp -o CMakeFiles/ray.dir/fileio/buffer.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/fileio/buffer.cpp -o CMakeFiles/ray.dir/fileio/buffer.cpp.s
 
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.o.requires:
 
@@ -155,16 +155,16 @@ src/CMakeFiles/ray.dir/fileio/buffer.cpp.o.provides.build: src/CMakeFiles/ray.di
 
 src/CMakeFiles/ray.dir/fileio/images.cc.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/fileio/images.cc.o: ../src/fileio/images.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/ray.dir/fileio/images.cc.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/images.cc.o -c /u/eztso/Documents/CS378H/ray/src/fileio/images.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/ray.dir/fileio/images.cc.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/images.cc.o -c /u/michael/CS378h/cs378p1/src/fileio/images.cc
 
 src/CMakeFiles/ray.dir/fileio/images.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/fileio/images.cc.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/fileio/images.cc > CMakeFiles/ray.dir/fileio/images.cc.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/fileio/images.cc > CMakeFiles/ray.dir/fileio/images.cc.i
 
 src/CMakeFiles/ray.dir/fileio/images.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/fileio/images.cc.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/fileio/images.cc -o CMakeFiles/ray.dir/fileio/images.cc.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/fileio/images.cc -o CMakeFiles/ray.dir/fileio/images.cc.s
 
 src/CMakeFiles/ray.dir/fileio/images.cc.o.requires:
 
@@ -179,16 +179,16 @@ src/CMakeFiles/ray.dir/fileio/images.cc.o.provides.build: src/CMakeFiles/ray.dir
 
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o: ../src/fileio/pngimage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/pngimage.cpp.o -c /u/eztso/Documents/CS378H/ray/src/fileio/pngimage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/fileio/pngimage.cpp.o -c /u/michael/CS378h/cs378p1/src/fileio/pngimage.cpp
 
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/fileio/pngimage.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/fileio/pngimage.cpp > CMakeFiles/ray.dir/fileio/pngimage.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/fileio/pngimage.cpp > CMakeFiles/ray.dir/fileio/pngimage.cpp.i
 
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/fileio/pngimage.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/fileio/pngimage.cpp -o CMakeFiles/ray.dir/fileio/pngimage.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/fileio/pngimage.cpp -o CMakeFiles/ray.dir/fileio/pngimage.cpp.s
 
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o.requires:
 
@@ -203,16 +203,16 @@ src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o.provides.build: src/CMakeFiles/ray.
 
 src/CMakeFiles/ray.dir/parser/Parser.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/parser/Parser.cpp.o: ../src/parser/Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/ray.dir/parser/Parser.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Parser.cpp.o -c /u/eztso/Documents/CS378H/ray/src/parser/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/ray.dir/parser/Parser.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Parser.cpp.o -c /u/michael/CS378h/cs378p1/src/parser/Parser.cpp
 
 src/CMakeFiles/ray.dir/parser/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/parser/Parser.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/parser/Parser.cpp > CMakeFiles/ray.dir/parser/Parser.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/parser/Parser.cpp > CMakeFiles/ray.dir/parser/Parser.cpp.i
 
 src/CMakeFiles/ray.dir/parser/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/parser/Parser.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/parser/Parser.cpp -o CMakeFiles/ray.dir/parser/Parser.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/parser/Parser.cpp -o CMakeFiles/ray.dir/parser/Parser.cpp.s
 
 src/CMakeFiles/ray.dir/parser/Parser.cpp.o.requires:
 
@@ -227,16 +227,16 @@ src/CMakeFiles/ray.dir/parser/Parser.cpp.o.provides.build: src/CMakeFiles/ray.di
 
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.o: ../src/parser/ParserException.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/ray.dir/parser/ParserException.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/ParserException.cpp.o -c /u/eztso/Documents/CS378H/ray/src/parser/ParserException.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/ray.dir/parser/ParserException.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/ParserException.cpp.o -c /u/michael/CS378h/cs378p1/src/parser/ParserException.cpp
 
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/parser/ParserException.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/parser/ParserException.cpp > CMakeFiles/ray.dir/parser/ParserException.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/parser/ParserException.cpp > CMakeFiles/ray.dir/parser/ParserException.cpp.i
 
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/parser/ParserException.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/parser/ParserException.cpp -o CMakeFiles/ray.dir/parser/ParserException.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/parser/ParserException.cpp -o CMakeFiles/ray.dir/parser/ParserException.cpp.s
 
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.o.requires:
 
@@ -251,16 +251,16 @@ src/CMakeFiles/ray.dir/parser/ParserException.cpp.o.provides.build: src/CMakeFil
 
 src/CMakeFiles/ray.dir/parser/Token.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/parser/Token.cpp.o: ../src/parser/Token.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/ray.dir/parser/Token.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Token.cpp.o -c /u/eztso/Documents/CS378H/ray/src/parser/Token.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/ray.dir/parser/Token.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Token.cpp.o -c /u/michael/CS378h/cs378p1/src/parser/Token.cpp
 
 src/CMakeFiles/ray.dir/parser/Token.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/parser/Token.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/parser/Token.cpp > CMakeFiles/ray.dir/parser/Token.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/parser/Token.cpp > CMakeFiles/ray.dir/parser/Token.cpp.i
 
 src/CMakeFiles/ray.dir/parser/Token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/parser/Token.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/parser/Token.cpp -o CMakeFiles/ray.dir/parser/Token.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/parser/Token.cpp -o CMakeFiles/ray.dir/parser/Token.cpp.s
 
 src/CMakeFiles/ray.dir/parser/Token.cpp.o.requires:
 
@@ -275,16 +275,16 @@ src/CMakeFiles/ray.dir/parser/Token.cpp.o.provides.build: src/CMakeFiles/ray.dir
 
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o: ../src/parser/Tokenizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Tokenizer.cpp.o -c /u/eztso/Documents/CS378H/ray/src/parser/Tokenizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/parser/Tokenizer.cpp.o -c /u/michael/CS378h/cs378p1/src/parser/Tokenizer.cpp
 
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/parser/Tokenizer.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/parser/Tokenizer.cpp > CMakeFiles/ray.dir/parser/Tokenizer.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/parser/Tokenizer.cpp > CMakeFiles/ray.dir/parser/Tokenizer.cpp.i
 
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/parser/Tokenizer.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/parser/Tokenizer.cpp -o CMakeFiles/ray.dir/parser/Tokenizer.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/parser/Tokenizer.cpp -o CMakeFiles/ray.dir/parser/Tokenizer.cpp.s
 
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o.requires:
 
@@ -299,16 +299,16 @@ src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/scene/bbox.cc.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/bbox.cc.o: ../src/scene/bbox.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/ray.dir/scene/bbox.cc.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/bbox.cc.o -c /u/eztso/Documents/CS378H/ray/src/scene/bbox.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/ray.dir/scene/bbox.cc.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/bbox.cc.o -c /u/michael/CS378h/cs378p1/src/scene/bbox.cc
 
 src/CMakeFiles/ray.dir/scene/bbox.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/bbox.cc.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/bbox.cc > CMakeFiles/ray.dir/scene/bbox.cc.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/bbox.cc > CMakeFiles/ray.dir/scene/bbox.cc.i
 
 src/CMakeFiles/ray.dir/scene/bbox.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/bbox.cc.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/bbox.cc -o CMakeFiles/ray.dir/scene/bbox.cc.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/bbox.cc -o CMakeFiles/ray.dir/scene/bbox.cc.s
 
 src/CMakeFiles/ray.dir/scene/bbox.cc.o.requires:
 
@@ -323,16 +323,16 @@ src/CMakeFiles/ray.dir/scene/bbox.cc.o.provides.build: src/CMakeFiles/ray.dir/sc
 
 src/CMakeFiles/ray.dir/scene/camera.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/camera.cpp.o: ../src/scene/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/ray.dir/scene/camera.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/camera.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/ray.dir/scene/camera.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/camera.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/camera.cpp
 
 src/CMakeFiles/ray.dir/scene/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/camera.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/camera.cpp > CMakeFiles/ray.dir/scene/camera.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/camera.cpp > CMakeFiles/ray.dir/scene/camera.cpp.i
 
 src/CMakeFiles/ray.dir/scene/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/camera.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/camera.cpp -o CMakeFiles/ray.dir/scene/camera.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/camera.cpp -o CMakeFiles/ray.dir/scene/camera.cpp.s
 
 src/CMakeFiles/ray.dir/scene/camera.cpp.o.requires:
 
@@ -347,16 +347,16 @@ src/CMakeFiles/ray.dir/scene/camera.cpp.o.provides.build: src/CMakeFiles/ray.dir
 
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o: ../src/scene/cubeMap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/cubeMap.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/cubeMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/cubeMap.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/cubeMap.cpp
 
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/cubeMap.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/cubeMap.cpp > CMakeFiles/ray.dir/scene/cubeMap.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/cubeMap.cpp > CMakeFiles/ray.dir/scene/cubeMap.cpp.i
 
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/cubeMap.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/cubeMap.cpp -o CMakeFiles/ray.dir/scene/cubeMap.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/cubeMap.cpp -o CMakeFiles/ray.dir/scene/cubeMap.cpp.s
 
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.requires:
 
@@ -371,16 +371,16 @@ src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.provides.build: src/CMakeFiles/ray.di
 
 src/CMakeFiles/ray.dir/scene/light.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/light.cpp.o: ../src/scene/light.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/ray.dir/scene/light.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/light.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/light.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/ray.dir/scene/light.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/light.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/light.cpp
 
 src/CMakeFiles/ray.dir/scene/light.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/light.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/light.cpp > CMakeFiles/ray.dir/scene/light.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/light.cpp > CMakeFiles/ray.dir/scene/light.cpp.i
 
 src/CMakeFiles/ray.dir/scene/light.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/light.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/light.cpp -o CMakeFiles/ray.dir/scene/light.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/light.cpp -o CMakeFiles/ray.dir/scene/light.cpp.s
 
 src/CMakeFiles/ray.dir/scene/light.cpp.o.requires:
 
@@ -395,16 +395,16 @@ src/CMakeFiles/ray.dir/scene/light.cpp.o.provides.build: src/CMakeFiles/ray.dir/
 
 src/CMakeFiles/ray.dir/scene/material.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/material.cpp.o: ../src/scene/material.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/ray.dir/scene/material.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/material.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/material.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/ray.dir/scene/material.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/material.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/material.cpp
 
 src/CMakeFiles/ray.dir/scene/material.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/material.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/material.cpp > CMakeFiles/ray.dir/scene/material.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/material.cpp > CMakeFiles/ray.dir/scene/material.cpp.i
 
 src/CMakeFiles/ray.dir/scene/material.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/material.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/material.cpp -o CMakeFiles/ray.dir/scene/material.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/material.cpp -o CMakeFiles/ray.dir/scene/material.cpp.s
 
 src/CMakeFiles/ray.dir/scene/material.cpp.o.requires:
 
@@ -419,16 +419,16 @@ src/CMakeFiles/ray.dir/scene/material.cpp.o.provides.build: src/CMakeFiles/ray.d
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/ray.cpp.o: ../src/scene/ray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/ray.dir/scene/ray.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/ray.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/ray.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/ray.dir/scene/ray.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/ray.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/ray.cpp
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/ray.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/ray.cpp > CMakeFiles/ray.dir/scene/ray.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/ray.cpp > CMakeFiles/ray.dir/scene/ray.cpp.i
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/ray.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/ray.cpp -o CMakeFiles/ray.dir/scene/ray.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/ray.cpp -o CMakeFiles/ray.dir/scene/ray.cpp.s
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.o.requires:
 
@@ -443,16 +443,16 @@ src/CMakeFiles/ray.dir/scene/ray.cpp.o.provides.build: src/CMakeFiles/ray.dir/sc
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/scene.cpp.o: ../src/scene/scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/ray.dir/scene/scene.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/scene.cpp.o -c /u/eztso/Documents/CS378H/ray/src/scene/scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/ray.dir/scene/scene.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/scene.cpp.o -c /u/michael/CS378h/cs378p1/src/scene/scene.cpp
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/scene.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/scene/scene.cpp > CMakeFiles/ray.dir/scene/scene.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/scene/scene.cpp > CMakeFiles/ray.dir/scene/scene.cpp.i
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/scene.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/scene/scene.cpp -o CMakeFiles/ray.dir/scene/scene.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/scene/scene.cpp -o CMakeFiles/ray.dir/scene/scene.cpp.s
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.o.requires:
 
@@ -467,16 +467,16 @@ src/CMakeFiles/ray.dir/scene/scene.cpp.o.provides.build: src/CMakeFiles/ray.dir/
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o: ../src/SceneObjects/Box.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Box.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/Box.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Box.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/Box.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/Box.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/Box.cpp > CMakeFiles/ray.dir/SceneObjects/Box.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/Box.cpp > CMakeFiles/ray.dir/SceneObjects/Box.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/Box.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/Box.cpp -o CMakeFiles/ray.dir/SceneObjects/Box.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/Box.cpp -o CMakeFiles/ray.dir/SceneObjects/Box.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o.requires:
 
@@ -491,16 +491,16 @@ src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o: ../src/SceneObjects/Cone.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cone.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/Cone.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/Cone.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cone.cpp > CMakeFiles/ray.dir/SceneObjects/Cone.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/Cone.cpp > CMakeFiles/ray.dir/SceneObjects/Cone.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/Cone.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cone.cpp -o CMakeFiles/ray.dir/SceneObjects/Cone.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/Cone.cpp -o CMakeFiles/ray.dir/SceneObjects/Cone.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o.requires:
 
@@ -515,16 +515,16 @@ src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o.provides.build: src/CMakeFiles/ra
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o: ../src/SceneObjects/Cylinder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cylinder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cylinder.cpp > CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.cpp > CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/Cylinder.cpp -o CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.cpp -o CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o.requires:
 
@@ -539,16 +539,16 @@ src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o.provides.build: src/CMakeFile
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o: ../src/SceneObjects/Sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/Sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/Sphere.cpp > CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.cpp > CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/Sphere.cpp -o CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.cpp -o CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o.requires:
 
@@ -563,16 +563,16 @@ src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o: ../src/SceneObjects/Square.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Square.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/Square.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Square.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/Square.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/Square.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/Square.cpp > CMakeFiles/ray.dir/SceneObjects/Square.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/Square.cpp > CMakeFiles/ray.dir/SceneObjects/Square.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/Square.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/Square.cpp -o CMakeFiles/ray.dir/SceneObjects/Square.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/Square.cpp -o CMakeFiles/ray.dir/SceneObjects/Square.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o.requires:
 
@@ -587,16 +587,16 @@ src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o: ../src/SceneObjects/trimesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o -c /u/eztso/Documents/CS378H/ray/src/SceneObjects/trimesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o -c /u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/SceneObjects/trimesh.cpp > CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.cpp > CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.i
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/SceneObjects/trimesh.cpp -o CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.cpp -o CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.s
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o.requires:
 
@@ -611,16 +611,16 @@ src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o.provides.build: src/CMakeFiles
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o: ../src/ui/CommandLineUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/CommandLineUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/CommandLineUI.cpp
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/CommandLineUI.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/CommandLineUI.cpp > CMakeFiles/ray.dir/ui/CommandLineUI.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/CommandLineUI.cpp > CMakeFiles/ray.dir/ui/CommandLineUI.cpp.i
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/CommandLineUI.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/CommandLineUI.cpp -o CMakeFiles/ray.dir/ui/CommandLineUI.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/CommandLineUI.cpp -o CMakeFiles/ray.dir/ui/CommandLineUI.cpp.s
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o.requires:
 
@@ -635,16 +635,16 @@ src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o: ../src/ui/CubeMapChooser.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o -c /u/eztso/Documents/CS378H/ray/src/ui/CubeMapChooser.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o -c /u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.cxx
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/CubeMapChooser.cxx > CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.cxx > CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.i
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/CubeMapChooser.cxx -o CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.cxx -o CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.s
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o.requires:
 
@@ -659,16 +659,16 @@ src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o.provides.build: src/CMakeFiles/ra
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o: ../src/ui/GraphicalUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/GraphicalUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/GraphicalUI.cpp
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/GraphicalUI.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/GraphicalUI.cpp > CMakeFiles/ray.dir/ui/GraphicalUI.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/GraphicalUI.cpp > CMakeFiles/ray.dir/ui/GraphicalUI.cpp.i
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/GraphicalUI.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/GraphicalUI.cpp -o CMakeFiles/ray.dir/ui/GraphicalUI.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/GraphicalUI.cpp -o CMakeFiles/ray.dir/ui/GraphicalUI.cpp.s
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o.requires:
 
@@ -683,16 +683,16 @@ src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o.provides.build: src/CMakeFiles/ray.d
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o: ../src/ui/ModelerCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/ModelerCamera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/ModelerCamera.cpp
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/ModelerCamera.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/ModelerCamera.cpp > CMakeFiles/ray.dir/ui/ModelerCamera.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/ModelerCamera.cpp > CMakeFiles/ray.dir/ui/ModelerCamera.cpp.i
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/ModelerCamera.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/ModelerCamera.cpp -o CMakeFiles/ray.dir/ui/ModelerCamera.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/ModelerCamera.cpp -o CMakeFiles/ray.dir/ui/ModelerCamera.cpp.s
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o.requires:
 
@@ -707,16 +707,16 @@ src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o: ../src/ui/TraceGLWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/TraceGLWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.cpp
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/TraceGLWindow.cpp > CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.cpp > CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.i
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/TraceGLWindow.cpp -o CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.cpp -o CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.s
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o.requires:
 
@@ -731,16 +731,16 @@ src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o: ../src/ui/TraceUI.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceUI.cc.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceUI.cc.o -c /u/eztso/Documents/CS378H/ray/src/ui/TraceUI.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceUI.cc.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceUI.cc.o -c /u/michael/CS378h/cs378p1/src/ui/TraceUI.cc
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/TraceUI.cc.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/TraceUI.cc > CMakeFiles/ray.dir/ui/TraceUI.cc.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/TraceUI.cc > CMakeFiles/ray.dir/ui/TraceUI.cc.i
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/TraceUI.cc.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/TraceUI.cc -o CMakeFiles/ray.dir/ui/TraceUI.cc.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/TraceUI.cc -o CMakeFiles/ray.dir/ui/TraceUI.cc.s
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o.requires:
 
@@ -755,16 +755,16 @@ src/CMakeFiles/ray.dir/ui/TraceUI.cc.o.provides.build: src/CMakeFiles/ray.dir/ui
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o: ../src/ui/debuggingView.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingView.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/debuggingView.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingView.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/debuggingView.cpp
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/debuggingView.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/debuggingView.cpp > CMakeFiles/ray.dir/ui/debuggingView.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/debuggingView.cpp > CMakeFiles/ray.dir/ui/debuggingView.cpp.i
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/debuggingView.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/debuggingView.cpp -o CMakeFiles/ray.dir/ui/debuggingView.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/debuggingView.cpp -o CMakeFiles/ray.dir/ui/debuggingView.cpp.s
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o.requires:
 
@@ -779,16 +779,16 @@ src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o: ../src/ui/debuggingWindow.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o -c /u/eztso/Documents/CS378H/ray/src/ui/debuggingWindow.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o -c /u/michael/CS378h/cs378p1/src/ui/debuggingWindow.cxx
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/debuggingWindow.cxx.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/debuggingWindow.cxx > CMakeFiles/ray.dir/ui/debuggingWindow.cxx.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/debuggingWindow.cxx > CMakeFiles/ray.dir/ui/debuggingWindow.cxx.i
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/debuggingWindow.cxx.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/debuggingWindow.cxx -o CMakeFiles/ray.dir/ui/debuggingWindow.cxx.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/debuggingWindow.cxx -o CMakeFiles/ray.dir/ui/debuggingWindow.cxx.s
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o.requires:
 
@@ -803,16 +803,16 @@ src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o.provides.build: src/CMakeFiles/r
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o: ../src/ui/glObjects.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/ray.dir/ui/glObjects.cpp.o"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/glObjects.cpp.o -c /u/eztso/Documents/CS378H/ray/src/ui/glObjects.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/ray.dir/ui/glObjects.cpp.o"
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/glObjects.cpp.o -c /u/michael/CS378h/cs378p1/src/ui/glObjects.cpp
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/ui/glObjects.cpp.i"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/eztso/Documents/CS378H/ray/src/ui/glObjects.cpp > CMakeFiles/ray.dir/ui/glObjects.cpp.i
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/michael/CS378h/cs378p1/src/ui/glObjects.cpp > CMakeFiles/ray.dir/ui/glObjects.cpp.i
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/ui/glObjects.cpp.s"
-	cd /u/eztso/Documents/CS378H/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/eztso/Documents/CS378H/ray/src/ui/glObjects.cpp -o CMakeFiles/ray.dir/ui/glObjects.cpp.s
+	cd /u/michael/CS378h/cs378p1/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/michael/CS378h/cs378p1/src/ui/glObjects.cpp -o CMakeFiles/ray.dir/ui/glObjects.cpp.s
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o.requires:
 
@@ -913,8 +913,8 @@ bin/ray: /usr/lib/x86_64-linux-gnu/libz.so
 bin/ray: /usr/lib/x86_64-linux-gnu/libz.so
 bin/ray: /usr/lib/x86_64-linux-gnu/libGLU.so
 bin/ray: src/CMakeFiles/ray.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/u/eztso/Documents/CS378H/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX executable ../bin/ray"
-	cd /u/eztso/Documents/CS378H/ray/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ray.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/u/michael/CS378h/cs378p1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX executable ../bin/ray"
+	cd /u/michael/CS378h/cs378p1/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ray.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/ray.dir/build: bin/ray
@@ -957,10 +957,10 @@ src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/ui/glObjects.cpp.o.requi
 .PHONY : src/CMakeFiles/ray.dir/requires
 
 src/CMakeFiles/ray.dir/clean:
-	cd /u/eztso/Documents/CS378H/ray/build/src && $(CMAKE_COMMAND) -P CMakeFiles/ray.dir/cmake_clean.cmake
+	cd /u/michael/CS378h/cs378p1/build/src && $(CMAKE_COMMAND) -P CMakeFiles/ray.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/ray.dir/clean
 
 src/CMakeFiles/ray.dir/depend:
-	cd /u/eztso/Documents/CS378H/ray/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /u/eztso/Documents/CS378H/ray /u/eztso/Documents/CS378H/ray/src /u/eztso/Documents/CS378H/ray/build /u/eztso/Documents/CS378H/ray/build/src /u/eztso/Documents/CS378H/ray/build/src/CMakeFiles/ray.dir/DependInfo.cmake --color=$(COLOR)
+	cd /u/michael/CS378h/cs378p1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /u/michael/CS378h/cs378p1 /u/michael/CS378h/cs378p1/src /u/michael/CS378h/cs378p1/build /u/michael/CS378h/cs378p1/build/src /u/michael/CS378h/cs378p1/build/src/CMakeFiles/ray.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/ray.dir/depend
 

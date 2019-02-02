@@ -1,4 +1,4 @@
-# Install script for directory: /u/eztso/Documents/CS378H/ray/src
+# Install script for directory: /u/michael/CS378h/cs378p1/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
