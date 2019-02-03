@@ -147,7 +147,6 @@ public:
 		                            localbounds.getMin()));
 		return localbounds;
 	}
-	glm::dvec3 getTrimeshNormal() const;
 	// double getTrimeshArea(glm::dvec3&, glm::dvec3&, glm::dvec3&) const;
 	const BoundingBox &getBoundingBox() const { return localbounds; }
 };

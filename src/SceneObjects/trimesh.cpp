@@ -114,11 +114,11 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
     auto P = r.getPosition() + r.getDirection() * time_of_intersect;
 
     // Formula from slides
-    if((glm::dot((glm::cross((b - a), (P - a))), normal)) < 0)
+    if((glm::dot((glm::cross((b - a), (P - a))), normal)) < RAY_EPSILON)
     	return false;
-    if((glm::dot((glm::cross((c - b), (P - b))), normal)) < 0)
+    if((glm::dot((glm::cross((c - b), (P - b))), normal)) < RAY_EPSILON)
     	return false;
-    if((glm::dot((glm::cross((a - c), (P - c))), normal)) < 0)
+    if((glm::dot((glm::cross((a - c), (P - c))), normal)) < RAY_EPSILON)
     	return false;
 
 

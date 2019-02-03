@@ -65,7 +65,7 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 	return col;
 }
 
-#define VERBOSE 0
+#define VERBOSE 1
 
 // Do recursive ray tracing!  You'll want to insert a lot of code here
 // (or places called from here) to handle reflection, refraction, etc etc.
@@ -223,6 +223,13 @@ void RayTracer::traceImage(int w, int h)
 	//
 	//       An asynchronous traceImage lets the GUI update your results
 	//       while rendering.
+	for (int x = 0; x < w; ++x)
+	{
+		for (int y = 0; y < h; ++y)
+		{
+			this->tracePixel(x, y);
+		}
+	}
 }
 
 int RayTracer::aaImage()
