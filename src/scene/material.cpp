@@ -47,14 +47,16 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// }
 
 	auto p = r.at(i.getT());
-	auto color = this->ke(i) + (this->ka(i) * scene->ambient());
+	auto color =  + (this->ka(i) * scene->ambient());
 
 	for (auto& light : scene->getAllLights())
 	{
-		auto lightCol = light->shadowAttenuation(r, p);
+		auto lightColor = light->shadowAttenuation(r, p);
 		auto lightVector = light->getDirection(p);
+
 		double n_dot_l = max(glm::dot(i.getN(), lightVector), 0.0);
 		auto nL = -1.0 * lightVector;
+		
 		auto R = nL - ((2.0 * i.getN()) * glm::dot(nL, i.getN()));
 		R = glm::normalize(R);
 
@@ -64,7 +66,8 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		auto diffuse = kd(i) * n_dot_l;
 		auto specular = ks(i) * pow(v_dot_r, shininess(i));
-		color += glm::dot(lightCol, (diffuse + specular)) * light->distanceAttenuation(p);
+
+		color += (lightColor * (diffuse + specular)) * light->distanceAttenuation(p);
 	}
 	return color;
 }
