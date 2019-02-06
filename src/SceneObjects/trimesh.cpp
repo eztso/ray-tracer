@@ -112,19 +112,29 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 
     // point on plane of triangle
     auto P = r.getPosition() + r.getDirection() * time_of_intersect;
+    auto m2 = glm::dot(glm::cross((c - a), (P - a)), normal)/(glm::dot(glm::cross((c - a), (b - a)), normal));
+    auto m3 = glm::dot(glm::cross((b - a), (P - a)), normal)/(glm::dot(glm::cross((b - a), (c - a)), normal));
+    auto m1 = (1.0 - m2 - m3);
 
-    // Formula from slides
-    if((glm::dot((glm::cross((b - a), (P - a))), normal)) < RAY_EPSILON)
-    	return false;
-    if((glm::dot((glm::cross((c - b), (P - b))), normal)) < RAY_EPSILON)
-    	return false;
-    if((glm::dot((glm::cross((a - c), (P - c))), normal)) < RAY_EPSILON)
-    	return false;
+    // barycentric coords
+    if (m1 < RAY_EPSILON || m1 > 1) return false;
+    if (m2 < RAY_EPSILON || m2 > 1) return false;
+    if (m3 < RAY_EPSILON || m3 > 1) return false;
+    if ((m2 + m3) < RAY_EPSILON || (m2 + m3) > 1) return false;
 
 	i.setObject(this);
 	i.setMaterial(this->getMaterial());
 	i.setT(time_of_intersect);
 	i.setN(normal);
+	i.setBary(m1, m2, m3);
+	// interpolate vertex normals
+    if (parent->vertNorms)
+    {
+        i.setN(((m1 * parent->normals[ids[0]]) +
+        	    (m2 * parent->normals[ids[1]]) +
+        	    (m3 * parent->normals[ids[2]])));
+        i.setN(glm::normalize(i.getN())); 
+    }
     // Check if 
     return true;
 }
