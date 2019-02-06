@@ -121,7 +121,6 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
     if((glm::dot((glm::cross((a - c), (P - c))), normal)) < RAY_EPSILON)
     	return false;
 
-
 	i.setObject(this);
 	i.setMaterial(this->getMaterial());
 	i.setT(time_of_intersect);

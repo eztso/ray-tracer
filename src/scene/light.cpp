@@ -19,7 +19,21 @@ glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p
 {
 	// YOUR CODE HERE:
 	// You should implement shadow-handling code here.
-	return glm::dvec3(1.0, 1.0, 1.0);
+	auto w = glm::dvec3(0, 0, 0);
+	ray pl(p, -orientation, w, ray::SHADOW);
+  	isect intersection;
+
+	if (!scene->intersect(pl, intersection))
+	{
+		return color;
+	} 
+
+	auto point_of_intersect = pl.at(intersection.getT());
+	auto kt = intersection.getMaterial().kt(intersection);
+	auto Ia = shadowAttenuation(r, point_of_intersect);
+
+	return Ia * kt;
+
 }
 
 glm::dvec3 DirectionalLight::getColor() const
@@ -40,7 +54,14 @@ double PointLight::distanceAttenuation(const glm::dvec3& P) const
 	// You'll need to modify this method to attenuate the intensity 
 	// of the light based on the distance between the source and the 
 	// point P.  For now, we assume no attenuation and just return 1.0
-	return 1.0;
+	double d = glm::length(P - position);
+	double I_att = 1.0 / (constantTerm + linearTerm * d + quadraticTerm * d * d);
+
+	// Light intensity should only get weaker or stay the same
+	// return attenuation;
+	if(I_att > 1.0) return 1;
+	else if(I_att < 0.0) return 0;
+	return I_att;
 }
 
 glm::dvec3 PointLight::getColor() const
@@ -58,7 +79,24 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 {
 	// YOUR CODE HERE:
 	// You should implement shadow-handling code here.
-	return glm::dvec3(1,1,1);
+	// Lighting model equation: http://www.cs.utexas.edu/~fussell/courses/cs354/assignments/raytracing/equations.pdf
+	auto w = glm::dvec3(0, 0, 0);
+	ray pl(p, getDirection(p), w, ray::SHADOW);
+	isect intersection;
+
+	bool check_intersect = scene->intersect(pl, intersection);
+	auto point_of_intersect = pl.at(intersection.getT());
+
+	bool before_light = ((p - point_of_intersect).length() < (position - p).length());
+
+	if (!check_intersect || !before_light)
+	{
+		return color;
+	}
+  	auto kt = intersection.getMaterial().kt(intersection);
+  	auto Ia = shadowAttenuation(r, point_of_intersect);
+
+  	return Ia * kt;
 }
 
 #define VERBOSE 0

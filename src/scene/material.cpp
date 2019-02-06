@@ -47,7 +47,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// }
 
 	auto p = r.at(i.getT());
-	auto color =  + (this->ka(i) * scene->ambient());
+	auto color = ke(i) + (this->ka(i) * scene->ambient());
 
 	for (auto& light : scene->getAllLights())
 	{
@@ -56,7 +56,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		double n_dot_l = max(glm::dot(i.getN(), lightVector), 0.0);
 		auto nL = -1.0 * lightVector;
-		
+
 		auto R = nL - ((2.0 * i.getN()) * glm::dot(nL, i.getN()));
 		R = glm::normalize(R);
 
