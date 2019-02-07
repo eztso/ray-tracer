@@ -46,31 +46,25 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// 		.
 	// }
 
+	glm::dvec3 color =ke(i) + ka(i) * scene->ambient();
 	auto p = r.at(i.getT());
-	auto color = ke(i) + (this->ka(i) * scene->ambient());
+	for(auto& light: scene->getAllLights()) {
+		//diffuse term
+		glm::dvec3 L = glm::normalize(light->getDirection(p));
+		glm::dvec3 light_color = light->shadowAttenuation(r, p);
+		glm::dvec3 N = glm::normalize(i.getN());
+		glm::dvec3 diffuse = kd(i)* max(glm::dot(N, L), 0.0);
+		glm::dvec3 V = glm::normalize(scene->getCamera().getEye() - p);
+		glm::dvec3 R = glm::normalize(2.0 * glm::dot(L, N) * N) - L;
+		glm::dvec3 spec = ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
 
-	for (auto& light : scene->getAllLights())
-	{
-		auto lightColor = light->shadowAttenuation(r, p);
-		auto lightVector = light->getDirection(p);
+		color += light_color * (diffuse + spec) * light->distanceAttenuation(p);
 
-		double n_dot_l = max(glm::dot(i.getN(), lightVector), 0.0);
-		auto nL = -1.0 * lightVector;
-
-		auto R = nL - ((2.0 * i.getN()) * glm::dot(nL, i.getN()));
-		R = glm::normalize(R);
-
-		auto V = scene->getCamera().getEye() - p;
-		V = glm::normalize(V);
-		double v_dot_r = max(glm::dot(V, R), 0.0);
-
-		auto diffuse = kd(i) * n_dot_l;
-		auto specular = ks(i) * pow(v_dot_r, shininess(i));
-
-		color += (lightColor * (diffuse + specular)) * light->distanceAttenuation(p);
 	}
+
 	return color;
 }
+
 
 TextureMap::TextureMap(string filename)
 {
