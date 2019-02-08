@@ -554,7 +554,7 @@ void Parser::parseTrimesh(Scene* scene, TransformNode* transform, const Material
   _tokenizer.Read( TRIMESH );
   _tokenizer.Read( LBRACE );
 
-  bool generateNormals( true );
+  bool generateNormals( false );
   list<glm::dvec3> faces;
 
   const char* error;
