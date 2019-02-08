@@ -91,6 +91,21 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 
 		const Material& m = i.getMaterial();
 		colorC = m.shade(scene.get(), r, i);
+
+		if (depth == 0)
+			return colorC;
+		auto intersectionPoint = r.at(i.getT());
+		auto dir = r.getDirection();
+
+		if(m.kr(i)[0] != 0 || m.kr(i)[1] != 0 || m.kr(i)[2] !=0) {
+			auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
+			glm::normalize(wRef);
+			ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFLECTION);
+			auto refColor = traceRay(reflection, thresh, depth-1,t);
+			colorC += refColor * m.kr(i);
+		}
+
+
 	} else {
 		// No intersection.  This ray travels to infinity, so we color
 		// it according to the background color, which in this (simple) case

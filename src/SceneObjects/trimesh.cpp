@@ -95,7 +95,7 @@ bool TrimeshFace::intersect(ray& r, isect& i) const
 // intersection in u (alpha) and v (beta).
 bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 {
-	// YOUR CODE HERE
+	// YOUR CODE HERE*
 	//
 	// FIXME: Add ray-trimesh intersection
     const auto& a = this->parent->vertices[ids[0]];
@@ -127,6 +127,8 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	i.setT(time_of_intersect);
 	i.setN(normal);
 	i.setBary(m1, m2, m3);
+
+	i.setUVCoordinates(glm::dvec2(m2, m3));
 	// interpolate vertex normals
     if (parent->vertNorms)
     {
@@ -134,6 +136,15 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
         	    (m2 * parent->normals[ids[1]]) +
         	    (m3 * parent->normals[ids[2]])));
         i.setN(glm::normalize(i.getN())); 
+    }
+    if (!parent->materials.empty())
+    {
+        Material m;
+        m += (m1 * Material(*parent->materials[ids[0]]));
+        m += (m2 * Material(*parent->materials[ids[1]]));
+        m += (m3 * Material(*parent->materials[ids[2]]));
+
+        i.setMaterial(m);
     }
     // Check if 
     return true;
