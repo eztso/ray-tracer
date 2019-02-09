@@ -57,11 +57,13 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 	double y = double(j)/double(buffer_height);
 
 	unsigned char *pixel = buffer.data() + ( i + j * buffer_width ) * 3;
+
 	col = trace(x, y);
 
-	pixel[0] = (int)( 255.0 * col[0]);
-	pixel[1] = (int)( 255.0 * col[1]);
-	pixel[2] = (int)( 255.0 * col[2]);
+	// pixel[0] = (int)( 255.0 * col[0]);
+	// pixel[1] = (int)( 255.0 * col[1]);
+	// pixel[2] = (int)( 255.0 * col[2]);
+	this->setPixel(i, j, col);
 	return col;
 }
 
@@ -104,6 +106,49 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			auto refColor = traceRay(reflection, thresh, depth-1,t);
 			colorC += refColor * m.kr(i);
 		}
+
+		// if (m.kt(i)[0] != 0 || m.kt(i)[1] != 0 || m.kt(i)[2] !=0)
+		// {
+		// 	// Determine status of current ray
+		// 	glm::dvec3 V = -1.0 * dir;
+		// 	double cos_i = glm::dot(i.getN(), V);
+		// 	bool entering_obj = (cos_i > 0.0);
+		// 	bool exiting_obj = (cos_i < 0.0);
+
+		// 	// Build index of refraction
+		// 	double n = (entering_obj 
+		// 		? 1.0 / m.index(i)
+		// 		: (exiting_obj
+		// 			? m.index(i)
+		// 			: 0.0)
+		// 		);
+
+		// 	// We need to adjust the normal if the ray from inside the obejct
+		// 	glm::dvec3 N = (entering_obj
+		// 		? i.getN()
+		// 		: (exiting_obj
+		// 			? -1.0 * i.getN()
+		// 			: glm::dvec3(0.0, 0.0, 0.0))
+		// 		);
+
+		// 	double cos_t_sq = (1.0 - n * n * (1 - cos_i * cos_i));
+
+		// 	// Only use refraction when we don't have Total Internal Reflection
+		// 	if (cos_t_sq > 0.0 && (entering_obj || exiting_obj))
+		// 	{
+		// 		// Find refraction vector
+		// 		double cos_t = sqrt(cos_t_sq);
+		// 		glm::dvec3 T = (((n * cos_i) - cos_t) * N) - (n * V);
+		// 		T = glm::normalize(T);
+
+		// 		// Build and trace refraction ray
+		// 		ray refract_ray(intersectionPoint, T,glm::dvec3(0,0,0), ray::REFRACTION);
+		// 		glm::dvec3 refract_color = traceRay(refract_ray,thresh, depth - 1, t);
+
+		// 		// Add refraction ray's color
+		// 		colorC += refract_color * m.kt(i);
+		// 	}
+		// }
 
 
 	} else {
@@ -238,22 +283,59 @@ void RayTracer::traceImage(int w, int h)
 	//
 	//       An asynchronous traceImage lets the GUI update your results
 	//       while rendering.
-	for (int x = 0; x < w; ++x)
+	if (traceUI->aaSwitch())
 	{
-		for (int y = 0; y < h; ++y)
+		this->aaImage();
+	}
+	else
+	{
+		for (int x = 0; x < w; ++x)
 		{
-			this->tracePixel(x, y);
+			for (int y = 0; y < h; ++y)
+			{
+				this->tracePixel(x, y);
+			}
 		}
 	}
 }
 
+void RayTracer::superSamplePixel(int i, int j)
+{
+	double subPixelXsize = (1.0 / (buffer_width * samples));
+	double subPixelYsize = (1.0 / (buffer_height * samples));
+
+	double x = double(i)/double(buffer_width);
+	double y = double(j)/double(buffer_height);
+	
+	glm::dvec3 color(0,0,0);
+	for (int sampX = 0; sampX < samples; ++sampX)
+	{
+		for (int sampY = 0; sampY < samples; ++sampY)
+		{
+			color+=trace((double) (x) + sampX * subPixelXsize, (double)(y) + sampY * subPixelYsize);
+			/* code */
+		}
+	}
+	color/=(samples * samples);
+	this->setPixel(i, j, color);
+}
+
 int RayTracer::aaImage()
 {
+
 	// YOUR CODE HERE
 	// FIXME: Implement Anti-aliasing here
 	//
 	// TIP: samples and aaThresh have been synchronized with TraceUI by
 	//      RayTracer::traceSetup() function
+
+	for (int x = 0; x < buffer_width; ++x)
+	{
+		for (int y = 0; y < buffer_height; ++y)
+		{
+			this->superSamplePixel(x, y);
+		}
+	}
 	return 0;
 }
 

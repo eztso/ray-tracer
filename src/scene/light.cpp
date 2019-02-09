@@ -17,7 +17,7 @@ double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 
 glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
-	// YOUR CODE HERE:
+	// YOUR CODE HERE*:
 	// You should implement shadow-handling code here.
 	auto w = glm::dvec3(0, 0, 0);
 	ray pl(p, -orientation, w, ray::SHADOW);
@@ -49,7 +49,7 @@ glm::dvec3 DirectionalLight::getDirection(const glm::dvec3& P) const
 double PointLight::distanceAttenuation(const glm::dvec3& P) const
 {
 
-	// YOUR CODE HERE
+	// YOUR CODE HERE*
 
 	// You'll need to modify this method to attenuate the intensity 
 	// of the light based on the distance between the source and the 
@@ -77,19 +77,20 @@ glm::dvec3 PointLight::getDirection(const glm::dvec3& P) const
 
 glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
-	// YOUR CODE HERE:
+	// YOUR CODE HERE*:
 	// You should implement shadow-handling code here.
 	// Lighting model equation: http://www.cs.utexas.edu/~fussell/courses/cs354/assignments/raytracing/equations.pdf
 	auto w = glm::dvec3(0, 0, 0);
-	ray pl(p, getDirection(p), w, ray::SHADOW);
+	ray v_PL(p, getDirection(p), w, ray::SHADOW);
 	isect intersection;
 
-	bool check_intersect = scene->intersect(pl, intersection);
-	auto point_of_intersect = pl.at(intersection.getT());
+	bool check_intersect = scene->intersect(v_PL, intersection);
+	auto point_of_intersect = v_PL.at(intersection.getT());
 
-	double distance_pq = glm::length((p - point_of_intersect));
-	bool before_light = (distance_pq < glm::length(position - p));
-	if (!check_intersect || !before_light)
+	double m_PI = glm::length((point_of_intersect - p));
+	double m_PL = glm::length(position - p);
+	bool valid_intersect = (m_PI < m_PL);
+	if (!check_intersect || !valid_intersect)
 	{
 		return color;
 	}
