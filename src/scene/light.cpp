@@ -87,8 +87,8 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 	bool check_intersect = scene->intersect(pl, intersection);
 	auto point_of_intersect = pl.at(intersection.getT());
 
-	bool before_light = ((p - point_of_intersect).length() < (position - p).length());
-
+	double distance_pq = glm::length((p - point_of_intersect));
+	bool before_light = (distance_pq < glm::length(position - p));
 	if (!check_intersect || !before_light)
 	{
 		return color;
