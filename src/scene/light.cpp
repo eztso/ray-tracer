@@ -19,7 +19,9 @@ glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p
 {
 	// YOUR CODE HERE*:
 	// You should implement shadow-handling code here.
+	// still don't know what this does but ray constructor requires a 3rd vector
 	auto w = glm::dvec3(0, 0, 0);
+	// ray from point towards the light
 	ray pl(p, -orientation, w, ray::SHADOW);
   	isect intersection;
 
@@ -27,7 +29,6 @@ glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p
 	{
 		return color;
 	} 
-
 	auto point_of_intersect = pl.at(intersection.getT());
 	auto kt = intersection.getMaterial().kt(intersection);
 	auto Ia = shadowAttenuation(r, point_of_intersect);

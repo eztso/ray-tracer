@@ -60,9 +60,6 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 
 	col = trace(x, y);
 
-	// pixel[0] = (int)( 255.0 * col[0]);
-	// pixel[1] = (int)( 255.0 * col[1]);
-	// pixel[2] = (int)( 255.0 * col[2]);
 	this->setPixel(i, j, col);
 	return col;
 }
@@ -99,10 +96,17 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		auto intersectionPoint = r.at(i.getT());
 		auto dir = r.getDirection();
 
-		if(m.kr(i)[0] != 0 || m.kr(i)[1] != 0 || m.kr(i)[2] !=0) {
+		// Check if non-zero reflectiveness
+		if(m.kr(i)[0] != 0 || m.kr(i)[1] != 0 || m.kr(i)[2] !=0) 
+		{
+			// from the slides
 			auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
-			glm::normalize(wRef);
+			wRef = glm::normalize(wRef);
+			
+			// Creates a ray in the reflected direction
 			ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFLECTION);
+			
+			// find reflected color
 			auto refColor = traceRay(reflection, thresh, depth-1,t);
 			colorC += refColor * m.kr(i);
 		}
@@ -275,7 +279,7 @@ void RayTracer::traceImage(int w, int h)
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
 
-	// YOUR CODE HERE
+	// YOUR CODE HERE*
 	// FIXME: Start one or more threads for ray tracing
 	//
 	// TIPS: Ideally, the traceImage should be executed asynchronously,
@@ -283,6 +287,8 @@ void RayTracer::traceImage(int w, int h)
 	//
 	//       An asynchronous traceImage lets the GUI update your results
 	//       while rendering.
+
+	// Check if we need to anti alias
 	if (traceUI->aaSwitch())
 	{
 		this->aaImage();
@@ -301,12 +307,16 @@ void RayTracer::traceImage(int w, int h)
 
 void RayTracer::superSamplePixel(int i, int j)
 {
+	/*
+		input: pixel coords
+		performs supersampling on input pixel
+	*/
 	double subPixelXsize = (1.0 / (buffer_width * samples));
 	double subPixelYsize = (1.0 / (buffer_height * samples));
 
 	double x = double(i)/double(buffer_width);
 	double y = double(j)/double(buffer_height);
-	
+
 	glm::dvec3 color(0,0,0);
 	for (int sampX = 0; sampX < samples; ++sampX)
 	{
@@ -316,6 +326,7 @@ void RayTracer::superSamplePixel(int i, int j)
 			/* code */
 		}
 	}
+	// average the color
 	color/=(samples * samples);
 	this->setPixel(i, j, color);
 }
@@ -323,12 +334,13 @@ void RayTracer::superSamplePixel(int i, int j)
 int RayTracer::aaImage()
 {
 
-	// YOUR CODE HERE
+	// YOUR CODE HERE*
 	// FIXME: Implement Anti-aliasing here
 	//
 	// TIP: samples and aaThresh have been synchronized with TraceUI by
 	//      RayTracer::traceSetup() function
 
+	// super sample every pixel
 	for (int x = 0; x < buffer_width; ++x)
 	{
 		for (int y = 0; y < buffer_height; ++y)

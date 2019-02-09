@@ -98,30 +98,36 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE*
 	//
 	// FIXME: Add ray-trimesh intersection
+
+	// references to vertices
     const auto& a = this->parent->vertices[ids[0]];
     const auto& b = this->parent->vertices[ids[1]];
     const auto& c = this->parent->vertices[ids[2]];
 
+    // Check if ray is parallel 
     if(abs(glm::dot(normal, r.getDirection())) < RAY_EPSILON)
     	return false;
 
     double time_of_intersect = glm::dot(normal, (b - r.getPosition())) / glm::dot(normal, r.getDirection());
 
+    // object is behind us
     if(time_of_intersect < RAY_EPSILON)
     	return false;
 
     // point on plane of triangle
     auto P = r.getPosition() + r.getDirection() * time_of_intersect;
+    // get bary coords
     auto m2 = glm::dot(glm::cross((c - a), (P - a)), normal)/(glm::dot(glm::cross((c - a), (b - a)), normal));
     auto m3 = glm::dot(glm::cross((b - a), (P - a)), normal)/(glm::dot(glm::cross((b - a), (c - a)), normal));
     auto m1 = (1.0 - m2 - m3);
 
-    // barycentric coords
+    // verify intersect using bary coords
     if (m1 < RAY_EPSILON || m1 > 1) return false;
     if (m2 < RAY_EPSILON || m2 > 1) return false;
     if (m3 < RAY_EPSILON || m3 > 1) return false;
     if ((m2 + m3) < RAY_EPSILON || (m2 + m3) > 1) return false;
 
+    // set intersect info
 	i.setObject(this);
 	i.setMaterial(this->getMaterial());
 	i.setT(time_of_intersect);
@@ -137,6 +143,7 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
         	    (m3 * parent->normals[ids[2]])));
         i.setN(glm::normalize(i.getN())); 
     }
+    // interpolate vertex materials
     if (!parent->materials.empty())
     {
         Material m;
