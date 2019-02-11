@@ -127,21 +127,21 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			auto t_perp = (IOR_coefficient) * ((dir) - (glm::dot(N,dir) * N));
 			auto inner_term = 1.0 - (glm::length(t_perp) * glm::length(t_perp));
 
-			auto kt = glm::pow(i.getMaterial().kt(i), glm::length(intersectionPoint - r.getPosition()));
+			auto kt = glm::pow(i.getMaterial().kt(i), glm::dvec3(1, 1, 1) * glm::length(intersectionPoint - r.getPosition()));
 			
 			if(inner_term < 0)
 			{
-				// from the slides
-				auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
-				wRef = glm::normalize(wRef);
+				// // from the slides
+				// auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
+				// wRef = glm::normalize(wRef);
 				
-				// Creates a ray in the reflected direction
-				ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
+				// // Creates a ray in the reflected direction
+				// ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
 				
-				// find reflected color
-				auto refColor = traceRay(reflection, thresh, depth-1,t);
-				colorC += refColor * kt;
-				return colorC;
+				// // find reflected color
+				// auto refColor = traceRay(reflection, thresh, depth-1,t);
+				// colorC += refColor * kt;
+				return glm::dvec3(0, 0, 0);
 			}
 
 			auto t_parallel = -std::sqrt(inner_term) * N;

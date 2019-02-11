@@ -58,13 +58,17 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		glm::dvec3 light_color = light->shadowAttenuation(r, p);
 		// The normal of intersection surface 
 		glm::dvec3 N = glm::normalize(i.getN());
+
+		bool going_in = glm::dot(r.getDirection(), N) < 0;
+		if (!going_in) { N = -N; }
+
 		// Direction towards the camera
 		glm::dvec3 V = glm::normalize(scene->getCamera().getEye() - p);
 		// Direction that a reflection would take
 		glm::dvec3 R = 2.0 * glm::dot(L, N) * N - L;
 
 		glm::dvec3 diffuse = kd(i)* max(glm::dot(N, L), 0.0);
-		glm::dvec3 spec = ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
+		glm::dvec3 spec = !going_in ? glm::dvec3(0, 0, 0) : ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
 		color += light_color * (diffuse + spec) * light->distanceAttenuation(p);
 	}
 
