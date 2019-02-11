@@ -48,6 +48,7 @@ public:
 	void setPosition(const glm::dvec3& pp) { p = pp; }
 	void setDirection(const glm::dvec3& dd) { d = dd; }
 
+	double source_IOR = 1.0;
 private:
 	glm::dvec3 p;
 	glm::dvec3 d;

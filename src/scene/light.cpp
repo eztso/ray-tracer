@@ -60,9 +60,10 @@ double PointLight::distanceAttenuation(const glm::dvec3& P) const
 
 	// Light intensity should only get weaker or stay the same
 	// return attenuation;
-	if(I_att > 1.0) return 1;
-	else if(I_att < 0.0) return 0;
-	return I_att;
+	return glm::clamp(I_att, 0.0, 1.0);
+	// if(I_att > 1.0) return 1;
+	// else if(I_att < 0.0) return 0;
+	// return I_att;
 }
 
 glm::dvec3 PointLight::getColor() const

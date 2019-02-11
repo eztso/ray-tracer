@@ -90,7 +90,6 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 
 		const Material& m = i.getMaterial();
 		colorC = m.shade(scene.get(), r, i);
-
 		if (depth == 0)
 			return colorC;
 		auto intersectionPoint = r.at(i.getT());
@@ -111,49 +110,47 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			colorC += refColor * m.kr(i);
 		}
 
-		// if (m.kt(i)[0] != 0 || m.kt(i)[1] != 0 || m.kt(i)[2] !=0)
-		// {
-		// 	// Determine status of current ray
-		// 	glm::dvec3 V = -1.0 * dir;
-		// 	double cos_i = glm::dot(i.getN(), V);
-		// 	bool entering_obj = (cos_i > 0.0);
-		// 	bool exiting_obj = (cos_i < 0.0);
+		if (m.kt(i)[0] != 0 || m.kt(i)[1] != 0 || m.kt(i)[2] !=0)
+		{
+			auto IOR = i.getMaterial().index(i);
+			auto N = i.getN();
+			bool going_in = glm::dot(dir, N) < 0;
+			if(!going_in)
+			{
+				N = -N;
+			}
+			// auto i_parallel = -1 * (glm::dot(N, dir) * N);
+			// auto i_perp = (dir + (glm::dot(N, dir) * N));
+			if(r.source_IOR /IOR == 1.0 && !going_in) IOR = 1.0; 
 
-		// 	// Build index of refraction
-		// 	double n = (entering_obj 
-		// 		? 1.0 / m.index(i)
-		// 		: (exiting_obj
-		// 			? m.index(i)
-		// 			: 0.0)
-		// 		);
+			auto IOR_coefficient = r.source_IOR / IOR;
+			auto t_perp = (IOR_coefficient) * ((dir) - (glm::dot(N,dir) * N));
+			auto inner_term = 1.0 - (glm::length(t_perp) * glm::length(t_perp));
 
-		// 	// We need to adjust the normal if the ray from inside the obejct
-		// 	glm::dvec3 N = (entering_obj
-		// 		? i.getN()
-		// 		: (exiting_obj
-		// 			? -1.0 * i.getN()
-		// 			: glm::dvec3(0.0, 0.0, 0.0))
-		// 		);
+			auto kt = glm::pow(i.getMaterial().kt(i), glm::length(intersectionPoint - r.getPosition()));
+			
+			if(inner_term < 0)
+			{
+				// from the slides
+				auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
+				wRef = glm::normalize(wRef);
+				
+				// Creates a ray in the reflected direction
+				ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
+				
+				// find reflected color
+				auto refColor = traceRay(reflection, thresh, depth-1,t);
+				colorC += refColor * kt;
+				return colorC;
+			}
 
-		// 	double cos_t_sq = (1.0 - n * n * (1 - cos_i * cos_i));
-
-		// 	// Only use refraction when we don't have Total Internal Reflection
-		// 	if (cos_t_sq > 0.0 && (entering_obj || exiting_obj))
-		// 	{
-		// 		// Find refraction vector
-		// 		double cos_t = sqrt(cos_t_sq);
-		// 		glm::dvec3 T = (((n * cos_i) - cos_t) * N) - (n * V);
-		// 		T = glm::normalize(T);
-
-		// 		// Build and trace refraction ray
-		// 		ray refract_ray(intersectionPoint, T,glm::dvec3(0,0,0), ray::REFRACTION);
-		// 		glm::dvec3 refract_color = traceRay(refract_ray,thresh, depth - 1, t);
-
-		// 		// Add refraction ray's color
-		// 		colorC += refract_color * m.kt(i);
-		// 	}
-		// }
-
+			auto t_parallel = -std::sqrt(inner_term) * N;
+			glm::dvec3 refracted_ray_dir = t_perp + t_parallel;
+			ray refracted_ray (intersectionPoint, refracted_ray_dir, glm::dvec3(0, 0, 0), ray::REFRACTION);
+			refracted_ray.source_IOR = IOR;
+			
+			colorC += traceRay(refracted_ray, thresh, depth - 1, t) * kt;
+		}
 
 	} else {
 		// No intersection.  This ray travels to infinity, so we color
