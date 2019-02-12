@@ -16,6 +16,10 @@ glm::dvec3 DirectionalLight::dsaHelper(ray &r, const glm::dvec3& p, glm::dvec3 c
 		bool going_in = glm::dot(N, r.getDirection() ) < 0;
 		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
 		if(going_in) {
+			if(glm::length(i.getMaterial().kt(i)) == 0)
+			{
+				return glm::dvec3(0, 0, 0);
+			}
 			return dsaHelper(next, iPoint, currHelper);
 
 		}
@@ -42,6 +46,10 @@ glm::dvec3 PointLight::psaHelper(ray &r, const glm::dvec3& p, glm::dvec3 currHel
 		bool going_in = glm::dot(N, r.getDirection() ) < 0;
 		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
 		if(going_in) {
+			if(glm::length(i.getMaterial().kt(i)) == 0)
+			{
+				return glm::dvec3(0, 0, 0);
+			}
 			return psaHelper(next, iPoint, currHelper);
 
 		}
