@@ -85,21 +85,33 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 	auto w = glm::dvec3(0, 0, 0);
 	ray v_PL(p, getDirection(p), w, ray::SHADOW);
 	isect intersection;
-
 	bool check_intersect = scene->intersect(v_PL, intersection);
 	auto point_of_intersect = v_PL.at(intersection.getT());
 
 	double m_PI = glm::length((point_of_intersect - p));
-	double m_PL = glm::length(position - p);
+	double m_PL = glm::length(this->position - p);
 	bool valid_intersect = (m_PI < m_PL);
 	if (!check_intersect || !valid_intersect)
 	{
-		return color;
+		return this->color;
 	}
-  	auto kt = intersection.getMaterial().kt(intersection);
-  	auto Ia = shadowAttenuation(r, point_of_intersect);
+  	
 
-  	return Ia * kt;
+	//recursively find color of object closest to light
+  	auto Ia = shadowAttenuation(v_PL, point_of_intersect);
+
+
+  	auto kt = intersection.getMaterial().kt(intersection);
+  	bool going_in = glm::dot(r.getDirection(), intersection.getN()) < 0;
+		if (!going_in) {
+			return Ia * glm::pow(kt, glm::dvec3(1,1,1) * glm::length(point_of_intersect - v_PL.getPosition())); 
+
+
+		 }
+
+		 return Ia;
+
+
 }
 
 #define VERBOSE 0

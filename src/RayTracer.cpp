@@ -131,25 +131,26 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			
 			if(inner_term < 0)
 			{
-				// // from the slides
-				// auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
-				// wRef = glm::normalize(wRef);
+				// from the slides
+				auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
+				wRef = glm::normalize(wRef);
 				
-				// // Creates a ray in the reflected direction
-				// ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
+				// Creates a ray in the reflected direction
+				ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
 				
-				// // find reflected color
-				// auto refColor = traceRay(reflection, thresh, depth-1,t);
-				// colorC += refColor * kt;
-				return glm::dvec3(0, 0, 0);
+				// find reflected color
+				auto refColor = traceRay(reflection, thresh, depth-1,t);
+				colorC += refColor * kt;
+				return colorC;
 			}
 
 			auto t_parallel = -std::sqrt(inner_term) * N;
 			glm::dvec3 refracted_ray_dir = t_perp + t_parallel;
 			ray refracted_ray (intersectionPoint, refracted_ray_dir, glm::dvec3(0, 0, 0), ray::REFRACTION);
 			refracted_ray.source_IOR = IOR;
-			
-			colorC += traceRay(refracted_ray, thresh, depth - 1, t) * kt;
+			if(!going_in)
+				colorC += traceRay(refracted_ray, thresh, depth - 1, t) * kt;
+			else colorC += traceRay(refracted_ray, thresh, depth - 1, t);
 		}
 
 	} else {
