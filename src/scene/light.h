@@ -21,6 +21,7 @@ public:
 	virtual glm::dvec3 getDirection (const glm::dvec3& P) const = 0;
 
 
+
 protected:
 	Light(Scene *scene, const glm::dvec3& col) : SceneElement(scene), color(col) {}
 
@@ -35,12 +36,14 @@ class DirectionalLight
 	: public Light
 {
 public:
+
 	DirectionalLight(Scene *scene, const glm::dvec3& orien, const glm::dvec3& color)
 		: Light(scene, color), orientation(glm::normalize(orien)) { }
 	virtual glm::dvec3 shadowAttenuation(const ray& r, const glm::dvec3& pos) const;
 	virtual double distanceAttenuation(const glm::dvec3& P) const;
 	virtual glm::dvec3 getColor() const;
 	virtual glm::dvec3 getDirection(const glm::dvec3& P) const;
+	glm::dvec3 dsaHelper(ray &r,const glm::dvec3& p, glm::dvec3 currHelper) const;
 
 protected:
 	glm::dvec3 		orientation;
@@ -67,6 +70,7 @@ public:
 	virtual double distanceAttenuation(const glm::dvec3& P) const;
 	virtual glm::dvec3 getColor() const;
 	virtual glm::dvec3 getDirection(const glm::dvec3& P) const;
+	glm::dvec3 psaHelper(ray &r,const glm::dvec3& p, glm::dvec3 currHelper) const;
 
 	void setAttenuationConstants(float a, float b, float c)
 	{

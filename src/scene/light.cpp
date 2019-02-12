@@ -8,6 +8,53 @@
 
 using namespace std;
 
+glm::dvec3 DirectionalLight::dsaHelper(ray &r, const glm::dvec3& p, glm::dvec3 currHelper) const{
+	isect i;
+	if(scene->intersect(r,i)) {
+		glm::dvec3 iPoint = r.at(i.getT());
+		glm::dvec3 N = i.getN();
+		bool going_in = glm::dot(N, r.getDirection() ) < 0;
+		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
+		if(going_in) {
+			return dsaHelper(next, iPoint, currHelper);
+
+		}
+		else {
+			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(iPoint - r.getPosition())));
+			return dsaHelper(next, iPoint, currHelper);
+		}
+	}
+	else
+		return color * currHelper;
+} 
+
+glm::dvec3 PointLight::psaHelper(ray &r, const glm::dvec3& p, glm::dvec3 currHelper) const{
+	isect i;
+
+	if(scene->intersect(r,i)) {
+		glm::dvec3 iPoint = r.at(i.getT());
+		bool behindLight = glm::length(p - this->position) <= glm::length(p - iPoint);
+		if(behindLight) {
+			return color * currHelper;
+		}
+
+		glm::dvec3 N = i.getN();
+		bool going_in = glm::dot(N, r.getDirection() ) < 0;
+		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
+		if(going_in) {
+			return psaHelper(next, iPoint, currHelper);
+
+		}
+		else {
+			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(iPoint - r.getPosition())));
+			return psaHelper(next, iPoint, currHelper);
+		}
+	}
+	else
+		return color * currHelper;
+} 
+
+
 double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 {
 	// distance to light is infinite, so f(di) goes to 0.  Return 1.
@@ -20,20 +67,8 @@ glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p
 	// YOUR CODE HERE*:
 	// You should implement shadow-handling code here.
 	// still don't know what this does but ray constructor requires a 3rd vector
-	auto w = glm::dvec3(0, 0, 0);
-	// ray from point towards the light
-	ray pl(p, -orientation, w, ray::SHADOW);
-  	isect intersection;
-
-	if (!scene->intersect(pl, intersection))
-	{
-		return color;
-	} 
-	auto point_of_intersect = pl.at(intersection.getT());
-	auto kt = intersection.getMaterial().kt(intersection);
-	auto Ia = shadowAttenuation(r, point_of_intersect);
-
-	return Ia * kt;
+	ray rayToLight (p, -orientation, glm::dvec3(1,1,1), ray::SHADOW);
+	return dsaHelper(rayToLight, p, glm::dvec3(1.0,1.0,1.0));
 
 }
 
@@ -79,40 +114,18 @@ glm::dvec3 PointLight::getDirection(const glm::dvec3& P) const
 
 glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
+	 ray tmp (p,this->getDirection(p), glm::dvec3(1.0,1.0,1.0), ray::SHADOW);
+
+	 return psaHelper(tmp, p, glm::dvec3(1.0,1.0,1.0));
+
 	// YOUR CODE HERE*:
 	// You should implement shadow-handling code here.
 	// Lighting model equation: http://www.cs.utexas.edu/~fussell/courses/cs354/assignments/raytracing/equations.pdf
-	auto w = glm::dvec3(0, 0, 0);
-	ray v_PL(p, getDirection(p), w, ray::SHADOW);
-	isect intersection;
-	bool check_intersect = scene->intersect(v_PL, intersection);
-	auto point_of_intersect = v_PL.at(intersection.getT());
-
-	double m_PI = glm::length((point_of_intersect - p));
-	double m_PL = glm::length(this->position - p);
-	bool valid_intersect = (m_PI < m_PL);
-	if (!check_intersect || !valid_intersect)
-	{
-		return this->color;
-	}
-  	
-
-	//recursively find color of object closest to light
-  	auto Ia = shadowAttenuation(v_PL, point_of_intersect);
-
-
-  	auto kt = intersection.getMaterial().kt(intersection);
-  	bool going_in = glm::dot(r.getDirection(), intersection.getN()) < 0;
-		if (!going_in) {
-			return Ia * glm::pow(kt, glm::dvec3(1,1,1) * glm::length(point_of_intersect - v_PL.getPosition())); 
-
-
-		 }
-
-		 return Ia;
+	
 
 
 }
+
 
 #define VERBOSE 0
 
