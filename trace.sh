@@ -65,7 +65,7 @@ fi
 # diff image
 if [ $c_flag = true ] && [ $R_flag = true ] && [ $r_flag = true ]
 then
-	compare $refTrace $ourTrace -compose src $traceDiff
+	compare $refTrace $ourTrace -fuzz 5% -compose src $traceDiff
 	montage $ourTrace $refTrace $traceDiff -tile 3x1 -geometry +0+0 ${PICS}/${filename}.${EXT}
 	rm $ourTrace
 	rm $refTrace
