@@ -63,6 +63,63 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 	return col;
 }
 
+glm::dvec3 RayTracer::getReflContribution(ray& r, const glm::dvec3& thresh, int depth, double& t, const isect& i)
+{
+	auto P = r.at(i.getT());
+	auto I = r.getDirection();
+	auto N = i.getN();
+	const Material& m = i.getMaterial();
+	// from the slides
+	// I - (2.0 * glm::dot(I, N)) * N;
+	auto v_refl = glm::normalize( glm::reflect(I, N) );
+	
+	// Creates a ray in the reflected direction
+	ray reflection(P, v_refl, glm::dvec3(1.0, 1.0, 1.0), ray::REFLECTION);
+	
+	// find reflected color
+	auto refColor = traceRay(reflection, thresh, depth-1, t);
+	return refColor;
+}
+
+glm::dvec3 RayTracer::getRefrContribution(ray& r, const glm::dvec3& thresh, int depth, double& t, const isect& i)
+{
+	auto P = r.at(i.getT());
+	auto I = r.getDirection();
+	auto N = i.getN();
+	const Material& m = i.getMaterial();
+	auto IOR = i.getMaterial().index(i);
+	bool going_in = glm::dot(I, N) < 0;
+
+	if(!going_in) { N = -N; }
+
+	// we're exiting and going back into the air
+	if(abs(r.source_IOR - IOR) <= RAY_EPSILON && !going_in) IOR = 1.0; 
+
+	// IOR coefficient
+	auto eta = r.source_IOR / IOR;
+	// attentuate kt
+	auto kt = glm::pow(m.kt(i), glm::dvec3(1, 1, 1) * glm::length(P - r.getPosition()));
+
+	auto v_refr = glm::normalize(glm::refract(I, N, eta));
+	// glm::refract may return NaN
+	bool hasNan = glm::isnan(v_refr[0]) || glm::isnan(v_refr[1]) || glm::isnan(v_refr[2]);
+	// total internal reflection
+	if( hasNan || glm::length(v_refr) == 0)
+	{
+		isect invN(i);
+		invN.setN(-i.getN());
+		return getReflContribution(r, thresh, depth, t, invN) * kt;
+	}
+	else
+	{
+		ray refr_ray (P, v_refr, glm::dvec3(1, 1, 1), ray::REFRACTION);
+		refr_ray.source_IOR = IOR;
+		auto refr_color = traceRay(refr_ray, thresh, depth - 1, t);
+		if(!going_in)
+			refr_color = refr_color * kt;
+		return refr_color;
+	}
+}
 #define VERBOSE 0
 
 // Do recursive ray tracing!  You'll want to insert a lot of code here
@@ -98,58 +155,13 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		// Check if non-zero reflectiveness
 		if(m.Refl()) 
 		{
-			// from the slides
-			// I - (2.0 * glm::dot(I, N)) * N;
-			auto v_refl = glm::normalize( glm::reflect(I, N) );
-			
-			// Creates a ray in the reflected direction
-			ray reflection(P, v_refl, glm::dvec3(1.0, 1.0, 1.0), ray::REFLECTION);
-			
-			// find reflected color
-			auto refColor = traceRay(reflection, thresh, depth-1,t);
-			colorC += refColor * m.kr(i);
+			colorC += getReflContribution(r, thresh, depth, t, i) * m.kr(i);
 		}
 
+		// Check if non-zero transparency
 		if (m.Trans())
 		{
-			auto IOR = i.getMaterial().index(i);
-			bool going_in = glm::dot(I, N) < 0;
-			if(!going_in) { N = -N; }
-
-			if(r.source_IOR /IOR == 1.0 && !going_in) IOR = 1.0; 
-
-			// ration of IOR's
-			auto eta = r.source_IOR / IOR;
-			auto t_perp = (eta) * ((I) - (glm::dot(N,I) * N));
-			auto inner_term = 1.0 - (glm::length(t_perp) * glm::length(t_perp));
-
-			// attentuate kt
-			auto kt = glm::pow(i.getMaterial().kt(i), glm::dvec3(1, 1, 1) * glm::length(P - r.getPosition()));
-			
-			// total internal reflection
-			if(inner_term < 0)
-			{
-				// from the slides
-				auto v_refl = glm::normalize( glm::reflect(I, N) );
-				
-				// Creates a ray in the reflected direction
-				ray reflection(P, v_refl, glm::dvec3(1, 1, 1), ray::REFRACTION);
-				
-				// find reflected color
-				auto refColor = traceRay(reflection, thresh, depth-1,t);
-				colorC += refColor * kt;
-			}
-			else
-			{
-				auto t_parallel = -std::sqrt(inner_term) * N;
-				glm::dvec3 v_refr = glm::normalize(t_perp + t_parallel);
-				ray refracted_ray (P, v_refr, glm::dvec3(0, 0, 0), ray::REFRACTION);
-				refracted_ray.source_IOR = IOR;
-				auto refr_color = traceRay(refracted_ray, thresh, depth - 1, t);
-				if(!going_in)
-					refr_color = refr_color * kt;
-				colorC += refr_color;
-			}
+			colorC += getRefrContribution(r, thresh, depth, t, i);
 		}
 
 	} else {

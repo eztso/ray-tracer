@@ -50,7 +50,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	auto p = r.at(i.getT());
 
 	// from slides, base color
-	glm::dvec3 color =ke(i) + ka(i) * scene->ambient();
+	glm::dvec3 color = ke(i) + ka(i) * scene->ambient();
 	
 	for(auto& light: scene->getAllLights()) {
 		// Direction from intersection to light
@@ -65,14 +65,15 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		// Direction towards the camera
 		glm::dvec3 V = glm::normalize(scene->getCamera().getEye() - p);
 		// Direction that a reflection would take
-		glm::dvec3 R = 2.0 * glm::dot(L, N) * N - L;
+		// glm::dvec3 R = 2.0 * glm::dot(L, N) * N - L;
+		glm::dvec3 R = -glm::reflect(L, N);
  		auto tmp = glm::dot(N, L);
- 		if (this->Trans())
- 		{
- 			tmp = abs(tmp);
- 		}
+ 		if (this->Trans()) { tmp = abs(tmp); }
  		else tmp = max(tmp, 0.0);
+
 		glm::dvec3 diffuse = kd(i)* tmp;
+
+		// check if object is transparent?
 		glm::dvec3 spec = !going_in ? glm::dvec3(0, 0, 0) : ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
 		color += light_color * (diffuse + spec) * light->distanceAttenuation(p);
 	}

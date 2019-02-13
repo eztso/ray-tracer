@@ -29,6 +29,9 @@ public:
 	~RayTracer();
 
 	glm::dvec3 tracePixel(int i, int j);
+	glm::dvec3 getReflContribution(ray& r, const glm::dvec3& thresh, int depth, double& t, const isect& i);
+	glm::dvec3 getRefrContribution(ray& r, const glm::dvec3& thresh, int depth, double& t, const isect& i);
+
 	glm::dvec3 traceRay(ray& r, const glm::dvec3& thresh, int depth,
 	                    double& length);
 

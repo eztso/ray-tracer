@@ -43,7 +43,7 @@ public:
 	virtual double distanceAttenuation(const glm::dvec3& P) const;
 	virtual glm::dvec3 getColor() const;
 	virtual glm::dvec3 getDirection(const glm::dvec3& P) const;
-	glm::dvec3 dsaHelper(ray &r,const glm::dvec3& p, glm::dvec3 currHelper) const;
+	glm::dvec3 dsaHelper(ray &r,const glm::dvec3& p) const;
 
 protected:
 	glm::dvec3 		orientation;
@@ -70,7 +70,7 @@ public:
 	virtual double distanceAttenuation(const glm::dvec3& P) const;
 	virtual glm::dvec3 getColor() const;
 	virtual glm::dvec3 getDirection(const glm::dvec3& P) const;
-	glm::dvec3 psaHelper(ray &r,const glm::dvec3& p, glm::dvec3 currHelper) const;
+	glm::dvec3 psaHelper(ray &r,const glm::dvec3& p) const;
 
 	void setAttenuationConstants(float a, float b, float c)
 	{

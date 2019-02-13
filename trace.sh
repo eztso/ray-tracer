@@ -21,6 +21,20 @@ then
 	echo "-f Specify the relative file path"
 	exit 0
 fi
+
+if [ $1 = "--raycheck" ]
+then
+	${ROOT}/raycheck.py --exec ${ROOT}/build/bin/ray --ref ${ROOT}/ray-solution
+	exit 0
+fi
+
+if [ $1 = "--build" ]
+then
+	mkdir build
+	(cd build; cmake .. -DCMAKE_BUILD_TYPE=Release; make -j8)
+	exit 0
+fi
+
 # if pics doesn't exist, make
 if [ ! -d $PICS ]
 then
