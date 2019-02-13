@@ -4,13 +4,23 @@ ROOT=~/CS378h/ray
 PICS="${ROOT}/pics"
 REF="${ROOT}/ray-solution"
 RAY="${ROOT}/build/bin/ray"
+BUILD="${ROOT}/build"
 RAYARGS="-r 5"
 EXT=png
 r_flag=false
 R_flag=false
 c_flag=false
+m_flag=false
 file=''
 
+if [ $1 = "--help" ]
+then
+	echo "-r Run your ray tracer"
+	echo "-R Run the reference ray tracer"
+	echo "-c Run both and stitch the result"
+	echo "-f Specify the relative file path"
+	exit 0
+fi
 # if pics doesn't exist, make
 if [ ! -d $PICS ]
 then
@@ -19,26 +29,32 @@ fi
 
 if [ ! -f $RAY ]
 then
-	echo "Ray executable not found."
-	echo $RAY
+	echo "${RAY} not found."
 	exit 1
 fi
 
 if [ ! -f $REF ]
 then
-	echo "Reference executable not found."
+	echo "${REF} not found."
 	exit 1
 fi
 
 # if -R flag, run reference sol
-while getopts 'rRcf:' flag; do
+while getopts 'rRcmf:' flag; do
   case "${flag}" in
     r) r_flag=true ;;
     R) R_flag=true ;;
 	c) c_flag=true ;;
+	m) m_flag=true ;;
     f) file="${OPTARG}" ;;
      esac
 done
+
+if [ $m_flag = true ]
+then
+	(cd ${BUILD}; make -j8)
+	exit 0
+fi
 
 if [ file = '' ] || [ ! -f "${file}" ]
 then 
@@ -52,18 +68,18 @@ filename=${filename%.*}
 ourTrace=${PICS}/o_${filename}.${EXT}
 refTrace=${PICS}/r_${filename}.${EXT}
 traceDiff=${PICS}/${filename}_diff.${EXT}
-if [ $r_flag = true ]
+if [ $r_flag = true ] || [ $c_flag = true ]
 then
 	${RAY} ${RAYARGS} ${file} $ourTrace
 fi
 
-if [ $R_flag = true ]
+if [ $R_flag = true ] || [ $c_flag = true ]
 then
 	${REF} ${RAYARGS} ${file} $refTrace
 fi
 
 # diff image
-if [ $c_flag = true ] && [ $R_flag = true ] && [ $r_flag = true ]
+if [ $c_flag = true ]
 then
 	compare $refTrace $ourTrace -fuzz 5% -compose src $traceDiff
 	montage $ourTrace $refTrace $traceDiff -tile 3x1 -geometry +0+0 ${PICS}/${filename}.${EXT}

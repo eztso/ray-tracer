@@ -60,7 +60,6 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 
 	col = trace(x, y);
 
-	this->setPixel(i, j, col);
 	return col;
 }
 
@@ -92,65 +91,65 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		colorC = m.shade(scene.get(), r, i);
 		if (depth == 0)
 			return colorC;
-		auto intersectionPoint = r.at(i.getT());
-		auto dir = r.getDirection();
+		auto P = r.at(i.getT());
+		auto I = r.getDirection();
+		auto N = i.getN();
 
 		// Check if non-zero reflectiveness
-		if(m.kr(i)[0] != 0 || m.kr(i)[1] != 0 || m.kr(i)[2] !=0) 
+		if(m.Refl()) 
 		{
 			// from the slides
-			auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
-			wRef = glm::normalize(wRef);
+			// I - (2.0 * glm::dot(I, N)) * N;
+			auto v_refl = glm::normalize( glm::reflect(I, N) );
 			
 			// Creates a ray in the reflected direction
-			ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFLECTION);
+			ray reflection(P, v_refl, glm::dvec3(1.0, 1.0, 1.0), ray::REFLECTION);
 			
 			// find reflected color
 			auto refColor = traceRay(reflection, thresh, depth-1,t);
 			colorC += refColor * m.kr(i);
 		}
 
-		if (m.kt(i)[0] != 0 || m.kt(i)[1] != 0 || m.kt(i)[2] !=0)
+		if (m.Trans())
 		{
 			auto IOR = i.getMaterial().index(i);
-			auto N = i.getN();
-			bool going_in = glm::dot(dir, N) < 0;
-			if(!going_in)
-			{
-				N = -N;
-			}
-			// auto i_parallel = -1 * (glm::dot(N, dir) * N);
-			// auto i_perp = (dir + (glm::dot(N, dir) * N));
+			bool going_in = glm::dot(I, N) < 0;
+			if(!going_in) { N = -N; }
+
 			if(r.source_IOR /IOR == 1.0 && !going_in) IOR = 1.0; 
 
-			auto IOR_coefficient = r.source_IOR / IOR;
-			auto t_perp = (IOR_coefficient) * ((dir) - (glm::dot(N,dir) * N));
+			// ration of IOR's
+			auto eta = r.source_IOR / IOR;
+			auto t_perp = (eta) * ((I) - (glm::dot(N,I) * N));
 			auto inner_term = 1.0 - (glm::length(t_perp) * glm::length(t_perp));
 
-			auto kt = glm::pow(i.getMaterial().kt(i), glm::dvec3(1, 1, 1) * glm::length(intersectionPoint - r.getPosition()));
+			// attentuate kt
+			auto kt = glm::pow(i.getMaterial().kt(i), glm::dvec3(1, 1, 1) * glm::length(P - r.getPosition()));
 			
+			// total internal reflection
 			if(inner_term < 0)
 			{
 				// from the slides
-				auto wRef = dir - (2.0 * glm::dot(dir,i.getN())) * i.getN();
-				wRef = glm::normalize(wRef);
+				auto v_refl = glm::normalize( glm::reflect(I, N) );
 				
 				// Creates a ray in the reflected direction
-				ray reflection(intersectionPoint, wRef, glm::dvec3(0.0,0.0,0.0), ray::REFRACTION);
+				ray reflection(P, v_refl, glm::dvec3(1, 1, 1), ray::REFRACTION);
 				
 				// find reflected color
 				auto refColor = traceRay(reflection, thresh, depth-1,t);
 				colorC += refColor * kt;
-				return colorC;
 			}
-
-			auto t_parallel = -std::sqrt(inner_term) * N;
-			glm::dvec3 refracted_ray_dir = t_perp + t_parallel;
-			ray refracted_ray (intersectionPoint, refracted_ray_dir, glm::dvec3(0, 0, 0), ray::REFRACTION);
-			refracted_ray.source_IOR = IOR;
-			if(!going_in)
-				colorC += traceRay(refracted_ray, thresh, depth - 1, t) * kt;
-			else colorC += traceRay(refracted_ray, thresh, depth - 1, t);
+			else
+			{
+				auto t_parallel = -std::sqrt(inner_term) * N;
+				glm::dvec3 v_refr = glm::normalize(t_perp + t_parallel);
+				ray refracted_ray (P, v_refr, glm::dvec3(0, 0, 0), ray::REFRACTION);
+				refracted_ray.source_IOR = IOR;
+				auto refr_color = traceRay(refracted_ray, thresh, depth - 1, t);
+				if(!going_in)
+					refr_color = refr_color * kt;
+				colorC += refr_color;
+			}
 		}
 
 	} else {
@@ -287,23 +286,24 @@ void RayTracer::traceImage(int w, int h)
 	//       while rendering.
 
 	// Check if we need to anti alias
-	if (traceUI->aaSwitch())
+	// if (traceUI->aaSwitch())
+	// {
+	// 	this->aaImage();
+	// }
+
+
+	// aa image is called from UI if aaSwitch, so don't need it above
+	for (int x = 0; x < w; ++x)
 	{
-		this->aaImage();
-	}
-	else
-	{
-		for (int x = 0; x < w; ++x)
+		for (int y = 0; y < h; ++y)
 		{
-			for (int y = 0; y < h; ++y)
-			{
-				this->tracePixel(x, y);
-			}
+			glm::dvec3 color = this->tracePixel(x, y);
+			this->setPixel(x, y, color);
 		}
 	}
 }
 
-void RayTracer::superSamplePixel(int i, int j)
+glm::dvec3 RayTracer::superSamplePixel(int i, int j)
 {
 	/*
 		input: pixel coords
@@ -326,7 +326,7 @@ void RayTracer::superSamplePixel(int i, int j)
 	}
 	// average the color
 	color/=(samples * samples);
-	this->setPixel(i, j, color);
+	return color;
 }
 
 int RayTracer::aaImage()
@@ -343,7 +343,9 @@ int RayTracer::aaImage()
 	{
 		for (int y = 0; y < buffer_height; ++y)
 		{
-			this->superSamplePixel(x, y);
+
+			glm::dvec3 color = this->superSamplePixel(x, y);
+			this->setPixel(x, y, color);
 		}
 	}
 	return 0;

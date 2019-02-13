@@ -38,7 +38,7 @@ public:
 	double aspectRatio();
 
 	void traceImage(int w, int h);
-	void superSamplePixel(int i, int j);
+	glm::dvec3 superSamplePixel(int i, int j);
 	int aaImage();
 	bool checkRender();
 	void waitRender();

@@ -11,21 +11,22 @@ using namespace std;
 glm::dvec3 DirectionalLight::dsaHelper(ray &r, const glm::dvec3& p, glm::dvec3 currHelper) const{
 	isect i;
 	if(scene->intersect(r,i)) {
-		glm::dvec3 iPoint = r.at(i.getT());
+		glm::dvec3 P = r.at(i.getT());
 		glm::dvec3 N = i.getN();
 		bool going_in = glm::dot(N, r.getDirection() ) < 0;
-		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
+		ray next (P, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
 		if(going_in) {
-			if(glm::length(i.getMaterial().kt(i)) == 0)
+			// stop here if opject is opaque
+			if(!i.getMaterial().Trans())
 			{
 				return glm::dvec3(0, 0, 0);
 			}
-			return dsaHelper(next, iPoint, currHelper);
+			return dsaHelper(next, P, currHelper);
 
 		}
 		else {
-			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(iPoint - r.getPosition())));
-			return dsaHelper(next, iPoint, currHelper);
+			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(P - r.getPosition())));
+			return dsaHelper(next, P, currHelper);
 		}
 	}
 	else
@@ -36,26 +37,27 @@ glm::dvec3 PointLight::psaHelper(ray &r, const glm::dvec3& p, glm::dvec3 currHel
 	isect i;
 
 	if(scene->intersect(r,i)) {
-		glm::dvec3 iPoint = r.at(i.getT());
-		bool behindLight = glm::length(p - this->position) <= glm::length(p - iPoint);
+		glm::dvec3 P = r.at(i.getT());
+		bool behindLight = glm::length(p - this->position) <= glm::length(p - P);
 		if(behindLight) {
 			return color * currHelper;
 		}
 
 		glm::dvec3 N = i.getN();
 		bool going_in = glm::dot(N, r.getDirection() ) < 0;
-		ray next (iPoint, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
+		ray next (P, r.getDirection(), glm::dvec3(1,1,1), ray::SHADOW);
 		if(going_in) {
-			if(glm::length(i.getMaterial().kt(i)) == 0)
+			// stop here if opject is opaque
+			if(!i.getMaterial().Trans())
 			{
 				return glm::dvec3(0, 0, 0);
 			}
-			return psaHelper(next, iPoint, currHelper);
+			return psaHelper(next, P, currHelper);
 
 		}
 		else {
-			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(iPoint - r.getPosition())));
-			return psaHelper(next, iPoint, currHelper);
+			currHelper = currHelper * (glm::pow(i.getMaterial().kt(i), glm::dvec3(1,1,1) * glm::length(P - r.getPosition())));
+			return psaHelper(next, P, currHelper);
 		}
 	}
 	else

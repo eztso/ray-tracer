@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/u/michael/CS378h/cs378p1/src/RayTracer.cpp
+/u/michael/CS378h/ray/src/RayTracer.cpp
 RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 scene/light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 scene/ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 parser/Tokenizer.h
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 parser/Parser.h
-/u/michael/CS378h/cs378p1/src/parser/Parser.h
+/u/michael/CS378h/ray/src/parser/Parser.h
 ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 cmath
 -
 algorithm
@@ -36,7 +36,7 @@ iostream
 fstream
 -
 
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 time.h
 -
 glm/vec3.hpp
@@ -46,11 +46,11 @@ queue
 thread
 -
 scene/cubeMap.h
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.h
+/u/michael/CS378h/ray/src/scene/cubeMap.h
 scene/ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Box.cpp
+/u/michael/CS378h/ray/src/SceneObjects/Box.cpp
 cmath
 -
 assert.h
@@ -58,59 +58,59 @@ assert.h
 algorithm
 -
 Box.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Box.h
+/u/michael/CS378h/ray/src/SceneObjects/Box.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Box.h
+/u/michael/CS378h/ray/src/SceneObjects/Box.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cone.cpp
+/u/michael/CS378h/ray/src/SceneObjects/Cone.cpp
 cmath
 -
 Cone.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cone.h
+/u/michael/CS378h/ray/src/SceneObjects/Cone.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cone.h
+/u/michael/CS378h/ray/src/SceneObjects/Cone.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.cpp
+/u/michael/CS378h/ray/src/SceneObjects/Cylinder.cpp
 cmath
 -
 Cylinder.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.h
+/u/michael/CS378h/ray/src/SceneObjects/Cylinder.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.h
+/u/michael/CS378h/ray/src/SceneObjects/Cylinder.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.cpp
+/u/michael/CS378h/ray/src/SceneObjects/Sphere.cpp
 cmath
 -
 Sphere.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.h
+/u/michael/CS378h/ray/src/SceneObjects/Sphere.h
 iostream
 -
 glm/gtx/io.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.h
+/u/michael/CS378h/ray/src/SceneObjects/Sphere.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Square.cpp
+/u/michael/CS378h/ray/src/SceneObjects/Square.cpp
 cmath
 -
 Square.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Square.h
+/u/michael/CS378h/ray/src/SceneObjects/Square.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/Square.h
+/u/michael/CS378h/ray/src/SceneObjects/Square.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.cpp
+/u/michael/CS378h/ray/src/SceneObjects/trimesh.cpp
 trimesh.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.h
+/u/michael/CS378h/ray/src/SceneObjects/trimesh.h
 assert.h
 -
 float.h
@@ -122,13 +122,13 @@ algorithm
 cmath
 -
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 glm/ext.hpp
-/u/michael/CS378h/cs378p1/src/SceneObjects/glm/ext.hpp
+/u/michael/CS378h/ray/src/SceneObjects/glm/ext.hpp
 iostream
 -
 
-/u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.h
+/u/michael/CS378h/ray/src/SceneObjects/trimesh.h
 list
 -
 memory
@@ -136,23 +136,23 @@ memory
 vector
 -
 ../scene/kdTree.h
-/u/michael/CS378h/cs378p1/src/scene/kdTree.h
+/u/michael/CS378h/ray/src/scene/kdTree.h
 ../scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 ../scene/ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 glm/gtc/matrix_transform.hpp
 -
 glm/vec3.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/bitmap.cpp
+/u/michael/CS378h/ray/src/fileio/bitmap.cpp
 bitmap.h
-/u/michael/CS378h/cs378p1/src/fileio/bitmap.h
+/u/michael/CS378h/ray/src/fileio/bitmap.h
 
-/u/michael/CS378h/cs378p1/src/fileio/bitmap.h
+/u/michael/CS378h/ray/src/fileio/bitmap.h
 stdio.h
 -
 string.h
@@ -162,25 +162,25 @@ vector
 stdint.h
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/buffer.cpp
+/u/michael/CS378h/ray/src/fileio/buffer.cpp
 string
 -
 buffer.h
-/u/michael/CS378h/cs378p1/src/fileio/buffer.h
+/u/michael/CS378h/ray/src/fileio/buffer.h
 
-/u/michael/CS378h/cs378p1/src/fileio/buffer.h
+/u/michael/CS378h/ray/src/fileio/buffer.h
 iostream
 -
 string
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/images.cc
+/u/michael/CS378h/ray/src/fileio/images.cc
 images.h
-/u/michael/CS378h/cs378p1/src/fileio/images.h
+/u/michael/CS378h/ray/src/fileio/images.h
 bitmap.h
-/u/michael/CS378h/cs378p1/src/fileio/bitmap.h
+/u/michael/CS378h/ray/src/fileio/bitmap.h
 pngimage.h
-/u/michael/CS378h/cs378p1/src/fileio/pngimage.h
+/u/michael/CS378h/ray/src/fileio/pngimage.h
 string
 -
 strings.h
@@ -188,15 +188,15 @@ strings.h
 iostream
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/images.h
+/u/michael/CS378h/ray/src/fileio/images.h
 vector
 -
 stdint.h
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/pngimage.cpp
+/u/michael/CS378h/ray/src/fileio/pngimage.cpp
 pngimage.h
-/u/michael/CS378h/cs378p1/src/fileio/pngimage.h
+/u/michael/CS378h/ray/src/fileio/pngimage.h
 zlib.h
 -
 png.h
@@ -210,21 +210,21 @@ vector
 string
 -
 
-/u/michael/CS378h/cs378p1/src/fileio/pngimage.h
+/u/michael/CS378h/ray/src/fileio/pngimage.h
 vector
 -
 stdint.h
 -
 
-/u/michael/CS378h/cs378p1/src/main.cpp
+/u/michael/CS378h/ray/src/main.cpp
 ui/GraphicalUI.h
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.h
+/u/michael/CS378h/ray/src/ui/GraphicalUI.h
 RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 ui/CommandLineUI.h
-/u/michael/CS378h/cs378p1/src/ui/CommandLineUI.h
+/u/michael/CS378h/ray/src/ui/CommandLineUI.h
 
-/u/michael/CS378h/cs378p1/src/parser/Parser.cpp
+/u/michael/CS378h/ray/src/parser/Parser.cpp
 iostream
 -
 fstream
@@ -234,15 +234,15 @@ sstream
 memory
 -
 Parser.h
-/u/michael/CS378h/cs378p1/src/parser/Parser.h
+/u/michael/CS378h/ray/src/parser/Parser.h
 Tokenizer.h
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 ../scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 glm/mat4x4.hpp
 -
 glm/glm.hpp
@@ -250,55 +250,55 @@ glm/glm.hpp
 glm/gtx/transform.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/parser/Parser.h
+/u/michael/CS378h/ray/src/parser/Parser.h
 string
 -
 map
 -
 ParserException.h
-/u/michael/CS378h/cs378p1/src/parser/ParserException.h
+/u/michael/CS378h/ray/src/parser/ParserException.h
 Tokenizer.h
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 glm/vec3.hpp
 -
 glm/vec4.hpp
 -
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 ../scene/light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 ../SceneObjects/Box.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Box.h
+/u/michael/CS378h/ray/src/SceneObjects/Box.h
 ../SceneObjects/Cone.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cone.h
+/u/michael/CS378h/ray/src/SceneObjects/Cone.h
 ../SceneObjects/Cylinder.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.h
+/u/michael/CS378h/ray/src/SceneObjects/Cylinder.h
 ../SceneObjects/Sphere.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.h
+/u/michael/CS378h/ray/src/SceneObjects/Sphere.h
 ../SceneObjects/Square.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Square.h
+/u/michael/CS378h/ray/src/SceneObjects/Square.h
 ../SceneObjects/trimesh.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.h
+/u/michael/CS378h/ray/src/SceneObjects/trimesh.h
 
-/u/michael/CS378h/cs378p1/src/parser/ParserException.cpp
+/u/michael/CS378h/ray/src/parser/ParserException.cpp
 iostream
 -
 sstream
 -
 ParserException.h
-/u/michael/CS378h/cs378p1/src/parser/ParserException.h
+/u/michael/CS378h/ray/src/parser/ParserException.h
 Tokenizer.h
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 
-/u/michael/CS378h/cs378p1/src/parser/ParserException.h
+/u/michael/CS378h/ray/src/parser/ParserException.h
 string
 -
 
-/u/michael/CS378h/cs378p1/src/parser/Token.cpp
+/u/michael/CS378h/ray/src/parser/Token.cpp
 stdio.h
 -
 Token.h
-/u/michael/CS378h/cs378p1/src/parser/Token.h
+/u/michael/CS378h/ray/src/parser/Token.h
 map
 -
 sstream
@@ -306,7 +306,7 @@ sstream
 iostream
 -
 
-/u/michael/CS378h/cs378p1/src/parser/Token.h
+/u/michael/CS378h/ray/src/parser/Token.h
 string
 -
 iostream
@@ -314,9 +314,9 @@ iostream
 map
 -
 ParserException.h
-/u/michael/CS378h/cs378p1/src/parser/ParserException.h
+/u/michael/CS378h/ray/src/parser/ParserException.h
 
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.cpp
+/u/michael/CS378h/ray/src/parser/Tokenizer.cpp
 string
 -
 map
@@ -326,103 +326,103 @@ sstream
 stdlib.h
 -
 ../fileio/buffer.h
-/u/michael/CS378h/cs378p1/src/fileio/buffer.h
+/u/michael/CS378h/ray/src/fileio/buffer.h
 Tokenizer.h
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 Token.h
-/u/michael/CS378h/cs378p1/src/parser/Token.h
+/u/michael/CS378h/ray/src/parser/Token.h
 
-/u/michael/CS378h/cs378p1/src/parser/Tokenizer.h
+/u/michael/CS378h/ray/src/parser/Tokenizer.h
 Token.h
-/u/michael/CS378h/cs378p1/src/parser/Token.h
+/u/michael/CS378h/ray/src/parser/Token.h
 ../fileio/buffer.h
-/u/michael/CS378h/cs378p1/src/fileio/buffer.h
+/u/michael/CS378h/ray/src/fileio/buffer.h
 string
 -
 memory
 -
 
-/u/michael/CS378h/cs378p1/src/scene/bbox.cc
+/u/michael/CS378h/ray/src/scene/bbox.cc
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 bbox.h
-/u/michael/CS378h/cs378p1/src/scene/bbox.h
+/u/michael/CS378h/ray/src/scene/bbox.h
 
-/u/michael/CS378h/cs378p1/src/scene/bbox.h
+/u/michael/CS378h/ray/src/scene/bbox.h
 glm/vec3.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/scene/camera.cpp
+/u/michael/CS378h/ray/src/scene/camera.cpp
 camera.h
-/u/michael/CS378h/cs378p1/src/scene/camera.h
+/u/michael/CS378h/ray/src/scene/camera.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 
-/u/michael/CS378h/cs378p1/src/scene/camera.h
+/u/michael/CS378h/ray/src/scene/camera.h
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 glm/vec3.hpp
 -
 glm/mat3x3.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.cpp
+/u/michael/CS378h/ray/src/scene/cubeMap.cpp
 cubeMap.h
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.h
+/u/michael/CS378h/ray/src/scene/cubeMap.h
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 ../scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.h
+/u/michael/CS378h/ray/src/scene/cubeMap.h
 memory
 -
 glm/vec3.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/scene/kdTree.h
+/u/michael/CS378h/ray/src/scene/kdTree.h
 
-/u/michael/CS378h/cs378p1/src/scene/light.cpp
+/u/michael/CS378h/ray/src/scene/light.cpp
 cmath
 -
 iostream
 -
 light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 glm/glm.hpp
 -
 glm/gtx/io.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 algorithm
 -
 scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 FL/gl.h
 -
 
-/u/michael/CS378h/cs378p1/src/scene/material.cpp
+/u/michael/CS378h/ray/src/scene/material.cpp
 material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 glm/gtx/io.hpp
 -
 iostream
 -
 ../fileio/images.h
-/u/michael/CS378h/cs378p1/src/fileio/images.h
+/u/michael/CS378h/ray/src/fileio/images.h
 
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 glm/vec2.hpp
 -
 glm/vec3.hpp
@@ -436,17 +436,17 @@ vector
 stdint.h
 -
 
-/u/michael/CS378h/cs378p1/src/scene/ray.cpp
+/u/michael/CS378h/ray/src/scene/ray.cpp
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 glm/vec2.hpp
 -
 glm/vec3.hpp
@@ -454,19 +454,19 @@ glm/vec3.hpp
 memory
 -
 material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 
-/u/michael/CS378h/cs378p1/src/scene/scene.cpp
+/u/michael/CS378h/ray/src/scene/scene.cpp
 cmath
 -
 scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 kdTree.h
-/u/michael/CS378h/cs378p1/src/scene/kdTree.h
+/u/michael/CS378h/ray/src/scene/kdTree.h
 ../ui/TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 glm/gtx/extended_min_max.hpp
 -
 iostream
@@ -474,7 +474,7 @@ iostream
 glm/gtx/io.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 algorithm
 -
 map
@@ -486,13 +486,13 @@ string
 vector
 -
 bbox.h
-/u/michael/CS378h/cs378p1/src/scene/bbox.h
+/u/michael/CS378h/ray/src/scene/bbox.h
 camera.h
-/u/michael/CS378h/cs378p1/src/scene/camera.h
+/u/michael/CS378h/ray/src/scene/camera.h
 material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 glm/geometric.hpp
 -
 glm/mat3x3.hpp
@@ -506,7 +506,7 @@ glm/vec3.hpp
 glm/vec4.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/ui/CommandLineUI.cpp
+/u/michael/CS378h/ray/src/ui/CommandLineUI.cpp
 stdarg.h
 -
 time.h
@@ -518,25 +518,25 @@ unistd.h
 assert.h
 -
 ../fileio/images.h
-/u/michael/CS378h/cs378p1/src/fileio/images.h
+/u/michael/CS378h/ray/src/fileio/images.h
 CommandLineUI.h
-/u/michael/CS378h/cs378p1/src/ui/CommandLineUI.h
+/u/michael/CS378h/ray/src/ui/CommandLineUI.h
 ../RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 
-/u/michael/CS378h/cs378p1/src/ui/CommandLineUI.h
+/u/michael/CS378h/ray/src/ui/CommandLineUI.h
 TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 
-/u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.cxx
+/u/michael/CS378h/ray/src/ui/CubeMapChooser.cxx
 CubeMapChooser.h
-/u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.h
+/u/michael/CS378h/ray/src/ui/CubeMapChooser.h
 ../scene/cubeMap.h
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.h
+/u/michael/CS378h/ray/src/scene/cubeMap.h
 ../scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 ../ui/GraphicalUI.h
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.h
+/u/michael/CS378h/ray/src/ui/GraphicalUI.h
 iostream
 -
 direct.h
@@ -544,7 +544,7 @@ direct.h
 unistd.h
 -
 
-/u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.h
+/u/michael/CS378h/ray/src/ui/CubeMapChooser.h
 FL/Fl.H
 -
 FL/Fl_Menu_Window.H
@@ -564,7 +564,7 @@ string
 memory
 -
 
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.cpp
+/u/michael/CS378h/ray/src/ui/GraphicalUI.cpp
 stdio.h
 -
 time.h
@@ -580,13 +580,13 @@ algorithm
 FL/fl_ask.H
 -
 debuggingView.h
-/u/michael/CS378h/cs378p1/src/ui/debuggingView.h
+/u/michael/CS378h/ray/src/ui/debuggingView.h
 GraphicalUI.h
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.h
+/u/michael/CS378h/ray/src/ui/GraphicalUI.h
 ../RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.h
+/u/michael/CS378h/ray/src/ui/GraphicalUI.h
 FL/Fl.H
 -
 FL/Fl_Window.H
@@ -602,15 +602,15 @@ FL/Fl_Button.H
 FL/Fl_File_Chooser.H
 -
 TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 TraceGLWindow.h
-/u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.h
+/u/michael/CS378h/ray/src/ui/TraceGLWindow.h
 debuggingWindow.h
-/u/michael/CS378h/cs378p1/src/ui/debuggingWindow.h
+/u/michael/CS378h/ray/src/ui/debuggingWindow.h
 CubeMapChooser.h
-/u/michael/CS378h/cs378p1/src/ui/CubeMapChooser.h
+/u/michael/CS378h/ray/src/ui/CubeMapChooser.h
 
-/u/michael/CS378h/cs378p1/src/ui/ModelerCamera.cpp
+/u/michael/CS378h/ray/src/ui/ModelerCamera.cpp
 windows.h
 -
 glm/mat4x4.hpp
@@ -622,25 +622,25 @@ FL/gl.h
 FL/glu.h
 -
 ModelerCamera.h
-/u/michael/CS378h/cs378p1/src/ui/ModelerCamera.h
+/u/michael/CS378h/ray/src/ui/ModelerCamera.h
 
-/u/michael/CS378h/cs378p1/src/ui/ModelerCamera.h
+/u/michael/CS378h/ray/src/ui/ModelerCamera.h
 glm/vec3.hpp
 -
 
-/u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.cpp
+/u/michael/CS378h/ray/src/ui/TraceGLWindow.cpp
 iostream
 -
 TraceGLWindow.h
-/u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.h
+/u/michael/CS378h/ray/src/ui/TraceGLWindow.h
 ../RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 GraphicalUI.h
-/u/michael/CS378h/cs378p1/src/ui/GraphicalUI.h
+/u/michael/CS378h/ray/src/ui/GraphicalUI.h
 ../fileio/bitmap.h
-/u/michael/CS378h/cs378p1/src/fileio/bitmap.h
+/u/michael/CS378h/ray/src/fileio/bitmap.h
 
-/u/michael/CS378h/cs378p1/src/ui/TraceGLWindow.h
+/u/michael/CS378h/ray/src/ui/TraceGLWindow.h
 FL/Fl.H
 -
 FL/Fl_Gl_Window.H
@@ -650,49 +650,49 @@ FL/gl.h
 FL/glu.h
 -
 ../RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.cc
+/u/michael/CS378h/ray/src/ui/TraceUI.cc
 TraceUI.h
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 sys/types.h
 -
 ../win32/dirent.h
-/u/michael/CS378h/cs378p1/src/win32/dirent.h
+/u/michael/CS378h/ray/src/win32/dirent.h
 dirent.h
 -
 ../scene/cubeMap.h
-/u/michael/CS378h/cs378p1/src/scene/cubeMap.h
+/u/michael/CS378h/ray/src/scene/cubeMap.h
 ../scene/material.h
-/u/michael/CS378h/cs378p1/src/scene/material.h
+/u/michael/CS378h/ray/src/scene/material.h
 json.hpp
-/u/michael/CS378h/cs378p1/src/ui/json.hpp
+/u/michael/CS378h/ray/src/ui/json.hpp
 fstream
 -
 iostream
 -
 
-/u/michael/CS378h/cs378p1/src/ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 string
 -
 memory
 -
 
-/u/michael/CS378h/cs378p1/src/ui/debuggingView.cpp
+/u/michael/CS378h/ray/src/ui/debuggingView.cpp
 debuggingView.h
-/u/michael/CS378h/cs378p1/src/ui/debuggingView.h
+/u/michael/CS378h/ray/src/ui/debuggingView.h
 string.h
 -
 iostream
 -
 ../RayTracer.h
-/u/michael/CS378h/cs378p1/src/RayTracer.h
+/u/michael/CS378h/ray/src/RayTracer.h
 ../scene/light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 ModelerCamera.h
-/u/michael/CS378h/cs378p1/src/ui/ModelerCamera.h
+/u/michael/CS378h/ray/src/ui/ModelerCamera.h
 FL/gl.h
 -
 FL/glu.h
@@ -704,15 +704,15 @@ FL/Fl_Gl_Window.H
 cstdio
 -
 
-/u/michael/CS378h/cs378p1/src/ui/debuggingView.h
+/u/michael/CS378h/ray/src/ui/debuggingView.h
 FL/Fl_Gl_Window.H
 -
 
-/u/michael/CS378h/cs378p1/src/ui/debuggingWindow.cxx
+/u/michael/CS378h/ray/src/ui/debuggingWindow.cxx
 debuggingWindow.h
-/u/michael/CS378h/cs378p1/src/ui/debuggingWindow.h
+/u/michael/CS378h/ray/src/ui/debuggingWindow.h
 
-/u/michael/CS378h/cs378p1/src/ui/debuggingWindow.h
+/u/michael/CS378h/ray/src/ui/debuggingWindow.h
 FL/Fl.H
 -
 FL/Fl_Window.H
@@ -720,9 +720,9 @@ FL/Fl_Window.H
 FL/Fl_Menu_Bar.H
 -
 debuggingView.h
-/u/michael/CS378h/cs378p1/src/ui/debuggingView.h
+/u/michael/CS378h/ray/src/ui/debuggingView.h
 
-/u/michael/CS378h/cs378p1/src/ui/glObjects.cpp
+/u/michael/CS378h/ray/src/ui/glObjects.cpp
 FL/gl.h
 -
 FL/glu.h
@@ -730,25 +730,25 @@ FL/glu.h
 math.h
 -
 ../scene/scene.h
-/u/michael/CS378h/cs378p1/src/scene/scene.h
+/u/michael/CS378h/ray/src/scene/scene.h
 ../scene/ray.h
-/u/michael/CS378h/cs378p1/src/scene/ray.h
+/u/michael/CS378h/ray/src/scene/ray.h
 ../scene/light.h
-/u/michael/CS378h/cs378p1/src/scene/light.h
+/u/michael/CS378h/ray/src/scene/light.h
 ../SceneObjects/Box.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Box.h
+/u/michael/CS378h/ray/src/SceneObjects/Box.h
 ../SceneObjects/Cone.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cone.h
+/u/michael/CS378h/ray/src/SceneObjects/Cone.h
 ../SceneObjects/Cylinder.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Cylinder.h
+/u/michael/CS378h/ray/src/SceneObjects/Cylinder.h
 ../SceneObjects/Sphere.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Sphere.h
+/u/michael/CS378h/ray/src/SceneObjects/Sphere.h
 ../SceneObjects/Square.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/Square.h
+/u/michael/CS378h/ray/src/SceneObjects/Square.h
 ../SceneObjects/trimesh.h
-/u/michael/CS378h/cs378p1/src/SceneObjects/trimesh.h
+/u/michael/CS378h/ray/src/SceneObjects/trimesh.h
 
-/u/michael/CS378h/cs378p1/src/ui/json.hpp
+/u/michael/CS378h/ray/src/ui/json.hpp
 algorithm
 -
 cassert
@@ -1012,7 +1012,7 @@ utility
 utility
 -
 
-/u/michael/CS378h/cs378p1/src/win32/dirent.h
+/u/michael/CS378h/ray/src/win32/dirent.h
 errno.h
 -
 stdlib.h
