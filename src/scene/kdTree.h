@@ -38,7 +38,7 @@ int KdTree<T>::maxDepth() const
 	{
 		return 0;
 	}
-	if (!this->getLeft() && !this->getRight())
+	if (this->isLeaf())
 	{
 		return 1;
 	}
@@ -52,7 +52,7 @@ int KdTree<T>::countLeaf() const
 	{
 		return 0;
 	}
-	if (!this->getLeft() && !this->getRight())
+	if (this->isLeaf())
 	{
 		return this->getObjects().size();
 	}
@@ -120,9 +120,6 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 		return;
 
 	this->_bbox = objects[0]->getBoundingBox();
-
-	if (objects.size() == 1)
-		return;
 
 	// Make a bounding box that fits all the objects
 	for(int i = 1; i < objects.size(); i++)
