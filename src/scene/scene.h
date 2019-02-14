@@ -150,6 +150,9 @@ public:
 	const BoundingBox& getBoundingBox() const { return bounds; }
 	glm::dvec3 getNormal() { return glm::dvec3(1.0, 0.0, 0.0); }
 
+	virtual void buildKdTree() {}
+	virtual bool isTrimesh() { return true; }
+
 	virtual void ComputeBoundingBox();
 
 	// default method for ComputeLocalBoundingBox returns a bogus bounding
@@ -263,10 +266,10 @@ public:
 
 	const BoundingBox& bounds() const { return sceneBounds; }
 
-
+	void buildKdTree();
 private:
-	std::vector<std::shared_ptr<Geometry>> objects;
 	std::vector<std::unique_ptr<Light>> lights;
+	std::vector<std::shared_ptr<Geometry>> objects;
 	Camera camera;
 
 	// This is the total amount of ambient light in the scene
@@ -283,7 +286,7 @@ private:
 	// are exempt from this requirement.
 	BoundingBox sceneBounds;
 
-	std::unique_ptr<KdTree<Geometry>> kdtree;
+	std::unique_ptr<KdTree<std::shared_ptr<Geometry>>> kdtree;
 
 public:
 	// This is used for debugging purposes only.

@@ -240,7 +240,8 @@ bool RayTracer::loadScene(const char* fn)
 
 	if (!sceneLoaded())
 		return false;
-
+	scene->buildKdTree();
+	std::cout << "Scene Loaded" <<std::endl;
 	return true;
 }
 

@@ -393,6 +393,8 @@ bbox.h
 /u/michael/CS378h/ray/src/scene/bbox.h
 ray.h
 /u/michael/CS378h/ray/src/scene/ray.h
+iostream
+-
 
 /u/michael/CS378h/ray/src/scene/light.cpp
 cmath

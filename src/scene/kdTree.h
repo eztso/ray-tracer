@@ -4,6 +4,7 @@
 #include <unordered_set>
 #include "bbox.h"
 #include "ray.h"
+#include <iostream>
 // Note: you can put kd-tree here
 
 template <class T>
@@ -19,8 +20,44 @@ public:
 	KdTree();
 	KdTree(std::vector<T>& objects, int depth);
 	bool intersect(const ray& r, isect& i) const;
+	const std::unique_ptr<KdTree<T>>& getLeft() const {return _left; }
+	const std::unique_ptr<KdTree<T>>& getRight() const {return _right; }
+	std::vector<T> getObjects() const {return _objects; }
+
+	int maxDepth() const;
+	int countLeaf() const;
+
 
 };
+
+// check how balanced the tree is
+template <class T>
+int KdTree<T>::maxDepth() const
+{
+	if(!this)
+	{
+		return 0;
+	}
+	if (!this->getLeft() && !this->getRight())
+	{
+		return 1;
+	}
+	return 1 + std::max(!_left ? 0 :_left->maxDepth(), !_right ? 0 :_right->maxDepth());
+}
+// Used to make sure all triangles are properly placed
+template <class T>
+int KdTree<T>::countLeaf() const
+{
+	if(!this)
+	{
+		return 0;
+	}
+	if (!this->getLeft() && !this->getRight())
+	{
+		return this->getObjects().size();
+	}
+	return (!_left ? 0 : _left->countLeaf()) + (!_right ? 0 : _right->countLeaf());
+}
 
 template <class T>
 bool KdTree<T>::intersect(const ray& r, isect& i) const
@@ -107,7 +144,7 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
     // partition each object into the halves based on the longest axis of the current bb
 	for (const auto& obj : objects)
 	{
-		auto box_axis_value = obj->getBoundingBox()->midPoint()[m_axis];
+		auto box_axis_value = obj->getBoundingBox().midPoint()[m_axis];
 		if (box_axis_value < pivot)
 			left_objects.push_back(obj);
 		else

@@ -97,6 +97,18 @@ Scene::~Scene()
 {
 }
 
+void Scene::buildKdTree()
+{
+	for (auto& obj : objects)
+	{
+		if(obj->hasBoundingBoxCapability())
+		{
+			obj->buildKdTree();
+		}
+	}
+	this->kdtree = std::make_unique<KdTree<std::shared_ptr<Geometry>>>(this->objects, 0);
+}
+
 void Scene::add(Geometry* obj) {
 	obj->ComputeBoundingBox();
 	sceneBounds.merge(obj->getBoundingBox());

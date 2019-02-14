@@ -27,7 +27,7 @@ class Trimesh : public MaterialSceneObject {
 	Normals normals;
 	Materials materials;
 	BoundingBox localBounds;
-	KdTree<TrimeshFace> kdtree;
+	std::unique_ptr<KdTree<TrimeshFace*>> kdtree;
 public:
 	Trimesh(Scene *scene, Material *mat, TransformNode *transform)
 	        : MaterialSceneObject(scene, mat),
@@ -53,6 +53,11 @@ public:
 	const char *doubleCheck();
 	virtual bool isTrimesh() const { return true; }
 
+	virtual void buildKdTree()
+	{
+		kdtree = std::make_unique<KdTree<TrimeshFace*>>(this->faces, 0);
+		std::cout << kdtree->countLeaf()<<' ' << kdtree->maxDepth()<<std::endl;
+	}
 	void generateNormals();
 
 	bool hasBoundingBoxCapability() const { return true; }
