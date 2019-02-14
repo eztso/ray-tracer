@@ -7,6 +7,7 @@
 #include <glm/gtx/extended_min_max.hpp>
 #include <iostream>
 #include <glm/gtx/io.hpp>
+extern TraceUI* traceUI;
 
 using namespace std;
 
@@ -124,15 +125,23 @@ void Scene::add(Light* light)
 // Get any intersection with an object.  Return information about the 
 // intersection through the reference parameter.
 bool Scene::intersect(ray& r, isect& i) const {
+	
 	double tmin = 0.0;
 	double tmax = 0.0;
 	bool have_one = false;
-	for(const auto& obj : objects) {
-		isect cur;
-		if( obj->intersect(r, cur) ) {
-			if(!have_one || (cur.getT() < i.getT())) {
-				i = cur;
-				have_one = true;
+	if(traceUI->kdSwitch())
+	{
+		have_one = kdtree->intersect(r, i);
+	}
+	else
+	{
+		for(const auto& obj : objects) {
+			isect cur;
+			if( obj->intersect(r, cur) ) {
+				if(!have_one || (cur.getT() < i.getT())) {
+					i = cur;
+					have_one = true;
+				}
 			}
 		}
 	}

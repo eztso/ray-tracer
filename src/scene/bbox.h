@@ -1,6 +1,8 @@
 #pragma once
 
 #include <glm/vec3.hpp>
+#include <iostream>
+#include <algorithm>
 class ray;
 
 class BoundingBox {
@@ -66,19 +68,18 @@ public:
 	double volume();
 	void merge(const BoundingBox& bBox);
 	glm::dvec3 midPoint() const {return (bmin + bmax) / glm::dvec3(2.0, 2.0, 2.0);}
-	int longestAxis() const 
+	std::vector<int> longestAxis() const 
 	{
 		auto diff = bmax - bmin;
-		int maxIdx = 0;
-		int maxDiff = diff[0];
-		for(int i = 1; i < diff.length(); i++)
-		{
-			if (diff[i] > maxDiff)
-			{
-				maxDiff = diff[i];
-				maxIdx = i;
-			}
-		}
-		return maxIdx;
+
+	    std::vector<int> max_idx(diff.length());
+	    std::size_t n(0);
+	    std::generate(std::begin(max_idx), std::end(max_idx), [&]{ return n++; });
+
+	    std::sort(  std::begin(max_idx), 
+	                std::end(max_idx),
+	                [&](int i1, int i2) { return diff[i1] > diff[i2]; } );
+
+	    return max_idx;
 	}
 };

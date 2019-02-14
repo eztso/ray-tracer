@@ -22,6 +22,12 @@ then
 	exit 0
 fi
 
+if [ $1 = "--g" ]
+then
+	${RAY}
+	exit 0
+fi
+
 if [ $1 = "--raycheck" ]
 then
 	${ROOT}/raycheck.py --exec ${ROOT}/build/bin/ray --ref ${ROOT}/ray-solution

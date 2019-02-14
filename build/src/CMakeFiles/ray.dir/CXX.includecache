@@ -351,6 +351,10 @@ bbox.h
 /u/michael/CS378h/ray/src/scene/bbox.h
 glm/vec3.hpp
 -
+iostream
+-
+algorithm
+-
 
 /u/michael/CS378h/ray/src/scene/camera.cpp
 camera.h

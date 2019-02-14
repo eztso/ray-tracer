@@ -19,15 +19,13 @@ private:
 public:
 	KdTree();
 	KdTree(std::vector<T>& objects, int depth);
-	bool intersect(const ray& r, isect& i) const;
+	bool intersect(ray& r, isect& i) const;
 	const std::unique_ptr<KdTree<T>>& getLeft() const {return _left; }
 	const std::unique_ptr<KdTree<T>>& getRight() const {return _right; }
 	std::vector<T> getObjects() const {return _objects; }
 
 	int maxDepth() const;
 	int countLeaf() const;
-
-
 };
 
 // check how balanced the tree is
@@ -60,7 +58,7 @@ int KdTree<T>::countLeaf() const
 }
 
 template <class T>
-bool KdTree<T>::intersect(const ray& r, isect& i) const
+bool KdTree<T>::intersect(ray& r, isect& i) const
 {
 	double tmin, tmax;
 	bool have_one = false;
@@ -74,7 +72,7 @@ bool KdTree<T>::intersect(const ray& r, isect& i) const
 				if(obj->intersect(r, check_intersect))
 				{
 					// Take the earliest time of intersection
-					if (!have_one || check_intersect.t < i.t)
+					if (!have_one || check_intersect.getT() < i.getT())
 					{
 						i = check_intersect;
 						have_one = true;
@@ -135,18 +133,37 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 
     std::vector<T> left_objects;
     std::vector<T> right_objects;
-    int m_axis = _bbox.longestAxis();
+
+    // start with the first longest axis
+    int cur_axis = 0;
+    // ordered vector of axises
+    auto ordered_axis = _bbox.longestAxis();
+    // get longest axis
+    int m_axis = ordered_axis[cur_axis++];
+    // get pivot point
     auto pivot = _bbox.midPoint()[m_axis];
 
     // partition each object into the halves based on the longest axis of the current bb
-	for (const auto& obj : objects)
-	{
-		auto box_axis_value = obj->getBoundingBox().midPoint()[m_axis];
-		if (box_axis_value < pivot)
-			left_objects.push_back(obj);
-		else
-			right_objects.push_back(obj);
-	}
+    // if a vector ends up empty then try again with the second longest
+    while ((left_objects.empty() || right_objects.empty()))
+    {
+    	// reset
+    	left_objects.clear();
+    	right_objects.clear();
+    	// partition
+		for (const auto& obj : objects)
+		{
+			auto box_axis_value = obj->getBoundingBox().midPoint()[m_axis];
+			if (box_axis_value < pivot)
+				left_objects.push_back(obj);
+			else
+				right_objects.push_back(obj);
+		}
+		// try next axis if empty
+    	m_axis = ordered_axis[cur_axis++];
+		pivot = _bbox.midPoint()[m_axis];
+    }
+
     if (!left_objects.empty())
     {
 	    this->_left = std::make_unique<KdTree<T>>(left_objects, depth + 1);

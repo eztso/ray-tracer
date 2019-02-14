@@ -70,13 +70,20 @@ const char* Trimesh::doubleCheck()
 
 bool Trimesh::intersectLocal(ray& r, isect& i) const
 {
+
 	bool have_one = false;
-	for (auto face : faces) {
-		isect cur;
-		if (face->intersectLocal(r, cur)) {
-			if (!have_one || (cur.getT() < i.getT())) {
-				i = cur;
-				have_one = true;
+	if(traceUI->kdSwitch())
+	{
+		have_one = kdtree->intersect(r, i);
+	}
+	else {
+		for (auto face : faces) {
+			isect cur;
+			if (face->intersectLocal(r, cur)) {
+				if (!have_one || (cur.getT() < i.getT())) {
+					i = cur;
+					have_one = true;
+				}
 			}
 		}
 	}
