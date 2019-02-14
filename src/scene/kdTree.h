@@ -99,7 +99,7 @@ KdTree<T>::KdTree(std::vector<T>& objects, int depth) :
    _bbox(), 
    _left(),
    _right(),
-   _objects(objects)
+   _objects()
 {
 	build_tree(objects, depth);
 }
@@ -125,8 +125,9 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 		}
 	}
 	// base case
-    if (_objects.size() < traceUI->getLeafSize() * 2 || depth >= traceUI->getMaxDepth())
+    if (objects.size() < traceUI->getLeafSize() * 2 || depth >= traceUI->getMaxDepth())
     {
+		this->_objects = objects;
 		return;
     }
 
@@ -137,18 +138,19 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
     int cur_axis = 0;
     // ordered vector of axises
     auto ordered_axis = _bbox.longestAxis();
-    // get longest axis
-    int m_axis = ordered_axis[cur_axis++];
-    // get pivot point
-    auto pivot = _bbox.midPoint()[m_axis];
 
     // partition each object into the halves based on the longest axis of the current bb
     // if a vector ends up empty then try again with the second longest
     while ((left_objects.empty() || right_objects.empty()))
     {
+    	// get longest axis
+		int	m_axis = ordered_axis[cur_axis++];
+    	// get pivot point
+		auto pivot = _bbox.midPoint()[m_axis];
     	// reset
     	left_objects.clear();
     	right_objects.clear();
+		
     	// partition
 		for (const auto& obj : objects)
 		{
@@ -158,20 +160,7 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 			else
 				right_objects.push_back(obj);
 		}
-		// try next axis if empty
-    	m_axis = ordered_axis[cur_axis++];
-		pivot = _bbox.midPoint()[m_axis];
     }
-    if (!left_objects.empty())
-    {
-	    this->_left = std::make_unique<KdTree<T>>(left_objects, depth + 1);
-    }
-    if (!right_objects.empty())
-    {
-	    this->_right = std::make_unique<KdTree<T>>(right_objects, depth + 1);
-    }
-	if(!this->isLeaf())
-	{
-		this->_objects.clear();
-	}
+	this->_left = std::make_unique<KdTree<T>>(left_objects, depth + 1);
+	this->_right = std::make_unique<KdTree<T>>(right_objects, depth + 1);
 }
