@@ -13,7 +13,7 @@ c_flag=false
 m_flag=false
 file=''
 
-if [ $1 = "--help" ]
+if [ $1 = "--help" ] || [ $# = 0 ]
 then
 	echo "-r Run your ray tracer"
 	echo "-R Run the reference ray tracer"
@@ -30,7 +30,8 @@ fi
 
 if [ $1 = "--build" ]
 then
-	mkdir build
+	rm -rf ${ROOT}/build
+	mkdir ${ROOT}/build
 	(cd build; cmake .. -DCMAKE_BUILD_TYPE=Release; make -j8)
 	exit 0
 fi

@@ -265,7 +265,7 @@ public:
 
 
 private:
-	std::vector<std::unique_ptr<Geometry>> objects;
+	std::vector<std::shared_ptr<Geometry>> objects;
 	std::vector<std::unique_ptr<Light>> lights;
 	Camera camera;
 
@@ -283,7 +283,7 @@ private:
 	// are exempt from this requirement.
 	BoundingBox sceneBounds;
 
-	KdTree<Geometry>* kdtree;
+	std::unique_ptr<KdTree<Geometry>> kdtree;
 
 public:
 	// This is used for debugging purposes only.

@@ -1,3 +1,124 @@
 #pragma once
-
+#include <vector>
+#include <memory>
+#include <unordered_set>
+#include "bbox.h"
+#include "ray.h"
 // Note: you can put kd-tree here
+
+template <class T>
+class KdTree
+{
+private:
+	BoundingBox _bbox;
+	std::unique_ptr<KdTree<T>> _left, _right;
+	std::vector<T> _objects;
+	void build_tree(std::vector<T>& objects, int depth);
+	bool isLeaf() const;
+public:
+	KdTree();
+	KdTree(std::vector<T>& objects, int depth);
+	bool intersect(const ray& r, isect& i) const;
+
+};
+
+template <class T>
+bool KdTree<T>::intersect(const ray& r, isect& i) const
+{
+	double tmin, tmax;
+	bool have_one = false;
+	if (this->_bbox.intersect(r, tmin, tmax))
+	{
+		if (this->isLeaf())
+		{
+			isect check_intersect;
+			for (const auto& obj : _objects)
+			{
+				if(obj->intersect(r, check_intersect))
+				{
+					// Take the earliest time of intersection
+					if (!have_one || check_intersect.t < i.t)
+					{
+						i = check_intersect;
+						have_one = true;
+					}
+				}
+			}
+		}
+		else
+		{
+			// do any of the children intersect?
+	        have_one |= this->_left->intersect(r, i);
+	        have_one |= this->_right->intersect(r, i);
+		}
+	}
+	return have_one;
+}
+
+template <class T>
+bool KdTree<T>::isLeaf() const { return !_left && !_right; }
+
+template <class T>
+KdTree<T>::KdTree(std::vector<T>& objects, int depth) :
+   _bbox(), 
+   _left(),
+   _right(),
+   _objects(objects)
+{
+	build_tree(objects, depth);
+}
+
+template <class T>
+KdTree<T>::KdTree() :
+   _bbox(), 
+   _left(),
+   _right(),
+   _objects() {}
+
+template <class T>
+void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
+{
+	// nothing here
+	if (objects.empty())
+		return;
+
+	this->_bbox = objects[0]->getBoundingBox();
+
+	if (objects.size() == 1)
+		return;
+
+	// Make a bounding box that fits all the objects
+	for(int i = 1; i < objects.size(); i++)
+	{
+		this->_bbox.merge(objects[i]->getBoundingBox());
+	}
+
+	// base case
+    if (_objects.size() <= 20 || depth >= 12)
+    {
+      return;
+    }
+
+    std::vector<T> left_objects;
+    std::vector<T> right_objects;
+    int m_axis = _bbox.longestAxis();
+    auto pivot = _bbox.midPoint()[m_axis];
+
+    // partition each object into the halves based on the longest axis of the current bb
+	for (const auto& obj : objects)
+	{
+		auto box_axis_value = obj->getBoundingBox()->midPoint()[m_axis];
+		if (box_axis_value < pivot)
+			left_objects.push_back(obj);
+		else
+			right_objects.push_back(obj);
+	}
+    if (!left_objects.empty())
+    {
+	    this->_left = std::make_unique<KdTree<T>>(left_objects, depth + 1);
+    }
+    if (!right_objects.empty())
+    {
+	    this->_right = std::make_unique<KdTree<T>>(right_objects, depth + 1);
+    }
+}

@@ -65,4 +65,20 @@ public:
 	double area();
 	double volume();
 	void merge(const BoundingBox& bBox);
+	glm::dvec3 midPoint() const {return (bmin + bmax) / glm::dvec3(2.0, 2.0, 2.0);}
+	int longestAxis() const 
+	{
+		auto diff = bmax - bmin;
+		int maxIdx = 0;
+		int maxDiff = diff[0];
+		for(int i = 1; i < diff.length(); i++)
+		{
+			if (diff[i] > maxDiff)
+			{
+				maxDiff = diff[i];
+				maxIdx = i;
+			}
+		}
+		return maxIdx;
+	}
 };

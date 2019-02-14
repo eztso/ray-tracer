@@ -148,9 +148,6 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		colorC = m.shade(scene.get(), r, i);
 		if (depth == 0)
 			return colorC;
-		auto P = r.at(i.getT());
-		auto I = r.getDirection();
-		auto N = i.getN();
 
 		// Check if non-zero reflectiveness
 		if(m.Refl()) 

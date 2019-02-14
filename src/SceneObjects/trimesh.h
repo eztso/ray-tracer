@@ -27,7 +27,7 @@ class Trimesh : public MaterialSceneObject {
 	Normals normals;
 	Materials materials;
 	BoundingBox localBounds;
-
+	KdTree<TrimeshFace> kdtree;
 public:
 	Trimesh(Scene *scene, Material *mat, TransformNode *transform)
 	        : MaterialSceneObject(scene, mat),
@@ -51,6 +51,7 @@ public:
 	bool addFace(int a, int b, int c);
 
 	const char *doubleCheck();
+	virtual bool isTrimesh() const { return true; }
 
 	void generateNormals();
 
