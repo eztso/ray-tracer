@@ -125,7 +125,7 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 		}
 	}
 	// base case
-    if (objects.size() < traceUI->getLeafSize() * 2 || depth >= traceUI->getMaxDepth())
+    if (objects.size() < traceUI->getLeafSize() || depth >= traceUI->getMaxDepth())
     {
 		this->_objects = objects;
 		return;
@@ -141,11 +141,12 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 
     // partition each object into the halves based on the longest axis of the current bb
     // if a vector ends up empty then try again with the second longest
-    while ((left_objects.empty() || right_objects.empty()))
+    while (cur_axis < 3 && (left_objects.empty() || right_objects.empty()))
     {
     	// get longest axis
 		int	m_axis = ordered_axis[cur_axis++];
     	// get pivot point
+
 		auto pivot = _bbox.midPoint()[m_axis];
     	// reset
     	left_objects.clear();
