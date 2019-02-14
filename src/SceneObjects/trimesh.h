@@ -56,6 +56,7 @@ public:
 	virtual void buildKdTree()
 	{
 		kdtree = std::make_unique<KdTree<TrimeshFace*>>(this->faces, 0);
+		std::cout << faces.size()<<std::endl;
 		std::cout << kdtree->countLeaf()<<' ' << kdtree->maxDepth()<<std::endl;
 	}
 	void generateNormals();

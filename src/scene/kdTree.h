@@ -5,6 +5,8 @@
 #include "bbox.h"
 #include "ray.h"
 #include <iostream>
+#include "../ui/TraceUI.h"
+extern TraceUI* traceUI;
 // Note: you can put kd-tree here
 
 template <class T>
@@ -19,7 +21,7 @@ private:
 public:
 	KdTree();
 	KdTree(std::vector<T>& objects, int depth);
-	bool intersect(ray& r, isect& i) const;
+	bool intersect(ray& r, isect& i, bool& have_one) const;
 	const std::unique_ptr<KdTree<T>>& getLeft() const {return _left; }
 	const std::unique_ptr<KdTree<T>>& getRight() const {return _right; }
 	std::vector<T> getObjects() const {return _objects; }
@@ -58,10 +60,9 @@ int KdTree<T>::countLeaf() const
 }
 
 template <class T>
-bool KdTree<T>::intersect(ray& r, isect& i) const
+bool KdTree<T>::intersect(ray& r, isect& i, bool& have_one) const
 {
 	double tmin, tmax;
-	bool have_one = false;
 	if (this->_bbox.intersect(r, tmin, tmax))
 	{
 		if (this->isLeaf())
@@ -83,8 +84,8 @@ bool KdTree<T>::intersect(ray& r, isect& i) const
 		else
 		{
 			// do any of the children intersect?
-	        have_one |= this->_left->intersect(r, i);
-	        have_one |= this->_right->intersect(r, i);
+	        have_one |= this->_left->intersect(r, i, have_one);
+	        have_one |= this->_right->intersect(r, i, have_one);
 		}
 	}
 	return have_one;
@@ -114,21 +115,19 @@ template <class T>
 void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
 {
 	// nothing here
-	if (objects.empty())
-		return;
-
-	this->_bbox = objects[0]->getBoundingBox();
-
-	// Make a bounding box that fits all the objects
-	for(int i = 1; i < objects.size(); i++)
+	if (!objects.empty())
 	{
-		this->_bbox.merge(objects[i]->getBoundingBox());
+		this->_bbox = objects[0]->getBoundingBox();
+		// Make a bounding box that fits all the objects
+		for(int i = 1; i < objects.size(); i++)
+		{
+			this->_bbox.merge(objects[i]->getBoundingBox());
+		}
 	}
-
 	// base case
-    if (_objects.size() <= 20 || depth >= 12)
+    if (_objects.size() < traceUI->getLeafSize() * 2 || depth >= traceUI->getMaxDepth())
     {
-      return;
+		return;
     }
 
     std::vector<T> left_objects;
@@ -163,7 +162,6 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
     	m_axis = ordered_axis[cur_axis++];
 		pivot = _bbox.midPoint()[m_axis];
     }
-
     if (!left_objects.empty())
     {
 	    this->_left = std::make_unique<KdTree<T>>(left_objects, depth + 1);
@@ -172,4 +170,8 @@ void  KdTree<T>::build_tree(std::vector<T>& objects, int depth)
     {
 	    this->_right = std::make_unique<KdTree<T>>(right_objects, depth + 1);
     }
+	if(!this->isLeaf())
+	{
+		this->_objects.clear();
+	}
 }

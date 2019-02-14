@@ -399,6 +399,8 @@ ray.h
 /u/michael/CS378h/ray/src/scene/ray.h
 iostream
 -
+../ui/TraceUI.h
+/u/michael/CS378h/ray/src/ui/TraceUI.h
 
 /u/michael/CS378h/ray/src/scene/light.cpp
 cmath
