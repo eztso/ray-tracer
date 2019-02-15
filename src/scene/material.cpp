@@ -63,7 +63,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		if (!going_in) { N = -N; }
 
 		// Direction towards the camera
-		glm::dvec3 V = glm::normalize(scene->getCamera().getEye() - p);
+		glm::dvec3 V = glm::normalize(-r.getDirection());
 		// Direction that a reflection would take
 		// glm::dvec3 R = 2.0 * glm::dot(L, N) * N - L;
 		glm::dvec3 R = -glm::reflect(L, N);
