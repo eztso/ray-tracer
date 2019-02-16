@@ -379,6 +379,8 @@ ray.h
 /u/michael/CS378h/ray/src/ui/TraceUI.h
 ../scene/material.h
 /u/michael/CS378h/ray/src/scene/material.h
+iostream
+-
 
 /u/michael/CS378h/ray/src/scene/cubeMap.h
 memory
