@@ -110,17 +110,55 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 	{
 		return glm::dvec3(1.0,1.0,1.0);
 	}
-	int x = (int)(coord[0] * width);
-	int y = (int)(coord[1] * height);
+	double x = coord[0] * width, y = coord[1] * height;
 
-	if(x >= width)
-		x = width - 1;
-	if(y >= height)
-		y = height - 1;
+	double x_f = std::floor(x);
+	double y_f = std::floor(y);
+	double x_c = std::ceil(x);
+	double y_c = std::ceil(y);
+	if(x_f == x && y_f == y)
+	{
+		return getPixelAt(x, y);
+	}
+	else if(x_f != x && y_f != y)
+	{
 
-	const unsigned char *pixel = data.data() + ( x + (y * width) ) * 3;
-	glm::dvec3 color((double)pixel[0]/255.0, (double)pixel[1]/255.0, (double)pixel[2]/255.0);
-	return color;
+
+		double coefficient = 1.0 / ((x_c - x_f) * (y_c - y_f));
+		std::cout << x_c - x_f << std::endl;
+		glm::dvec2 x_diff(x_c - x, x - x_f);
+		glm::dvec2 y_diff(y_c - y, y - y_f);
+
+		auto c_11 = getPixelAt(x_f, y_f);
+		auto c_12 = getPixelAt(x_f, y_c);
+		auto c_21 = getPixelAt(x_c, y_f);
+		auto c_22 = getPixelAt(x_c, y_c);
+
+		auto cy_11 = c_11 * y_diff[0] + c_12 * y_diff[1];
+		auto cy_21 = c_21 * y_diff[0] + c_22 * y_diff[1];
+
+		glm::dvec3 color = x_diff[0] * cy_11 + x_diff[1] * cy_21;
+
+		return coefficient * color;
+	}
+	else
+	{
+		// x is the integer
+		if (x_f == x)
+		{
+			auto lower_color = getPixelAt(x, y_f);
+			auto upper_color = getPixelAt(x, y_c);
+			return glm::mix(lower_color, upper_color, y - y_f);
+		}
+		// y is the integer
+		else
+		{
+			auto lower_color = getPixelAt(x_f, y);
+			auto upper_color = getPixelAt(x_c, y);
+			return glm::mix(lower_color, upper_color, x - x_f);
+		}
+	}
+
 }
 
 glm::dvec3 TextureMap::getPixelAt(int x, int y) const
