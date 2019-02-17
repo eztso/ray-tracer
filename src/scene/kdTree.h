@@ -84,8 +84,8 @@ bool KdTree<T>::intersect(ray& r, isect& i, bool& have_one) const
 		else
 		{
 			// do any of the children intersect?
-	        have_one |= this->_left->intersect(r, i, have_one);
-	        have_one |= this->_right->intersect(r, i, have_one);
+	        this->_left->intersect(r, i, have_one);
+	        this->_right->intersect(r, i, have_one);
 		}
 	}
 	return have_one;
