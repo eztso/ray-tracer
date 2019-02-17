@@ -360,7 +360,8 @@ glm::dvec3 RayTracer::adaptiveSS(double x_bl, double y_bl, double x_tr, double y
 			tr_res = adaptiveSS(center_x, center_y, x_tr, y_tr, depth + 1);
 		}
 	}
-	// this->setPixel(x_bl, y_bl, this->getPixel(x_bl, y_bl) + glm::dvec3(5, 5,))
+	// Test for adaptive SS, make 10% brighter  each time a pixel is traced
+	// this->setPixel(x_bl, y_bl, this->getPixel(x_bl, y_bl) + glm::dvec3(25 / 255.0, 25 / 255.0, 25 / 255.0));
 	return ( bl_res+ br_res + tl_res + tr_res) / 4.0;
 }
 glm::dvec3 RayTracer::superSamplePixel(int i, int j)

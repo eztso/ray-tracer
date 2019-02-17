@@ -23,14 +23,14 @@ glm::dvec3 CubeMap::getColor(ray r) const
 	if(x_positive && absX >= absY && absX >= absZ)
 	{
 		max_axis = absX;
-		uc = -z;
+		uc = z;
 		vc = y;
 		index = 0;
 	}
 	else if (!x_positive && absX >= absY && absX >= absZ)
 	{
 		max_axis = absX;
-		uc = z;
+		uc = -z;
 		vc = y;
 		index = 1;
 	}
