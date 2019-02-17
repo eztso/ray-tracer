@@ -18,6 +18,7 @@
 #include <string.h> // for memset
 
 #include <iostream>
+#include <thread>
 #include <fstream>
 
 using namespace std;
@@ -316,6 +317,52 @@ void RayTracer::traceImage(int w, int h)
 	}
 }
 
+/*
+	Adaptive super sample. Should be working
+	TODO: Test more, add checkbox, make test scene
+*/
+glm::dvec3 RayTracer::adaptiveSS(double x_bl, double y_bl, double x_tr, double y_tr, int depth)
+{
+	if (x_tr > buffer_width || y_tr > buffer_height)
+		return trace(x_bl, y_bl);
+	auto bl_col = trace(x_bl / (double) buffer_width, y_bl / (double) buffer_height);
+	auto tr_col = trace(x_tr / (double) buffer_width, y_tr / (double) buffer_height);
+	auto tl_col = trace(x_bl / (double) buffer_width, y_tr / (double) buffer_height);
+	auto br_col = trace(x_tr / (double) buffer_width, y_bl / (double) buffer_height);
+	double center_x = x_bl + (x_tr - x_bl) / 2.0;
+	double center_y = y_bl + (y_tr - y_bl) / 2.0;
+	auto center_col = trace( center_x / (double) buffer_width, center_y / (double) buffer_height);
+
+	const double rgb_mag = std::sqrt(3);
+	const double col_threshold = 0.1;
+
+	glm::dvec3 bl_res = (center_col + bl_col) / 2.0;
+	glm::dvec3 br_res = (center_col + br_col) / 2.0;
+	glm::dvec3 tl_res = (center_col + tl_col) / 2.0;
+	glm::dvec3 tr_res = (center_col + tr_col) / 2.0;
+
+	if(depth < samples)
+	{
+		if(glm::length(center_col - bl_col) / rgb_mag > col_threshold)
+		{
+			bl_res = adaptiveSS(x_bl, y_bl, center_x, center_y, depth + 1);
+		}
+		if(glm::length(center_col - br_col) / rgb_mag > col_threshold)
+		{
+			br_res = adaptiveSS( center_x, y_bl, x_tr, center_y, depth + 1);
+		}
+		if(glm::length(center_col - tl_col) / rgb_mag > col_threshold)
+		{
+			tl_res = adaptiveSS( x_bl, center_y, center_x, y_tr, depth + 1);
+		}
+		if(glm::length(center_col - tr_col) / rgb_mag > col_threshold)
+		{
+			tr_res = adaptiveSS(center_x, center_y, x_tr, y_tr, depth + 1);
+		}
+	}
+	// this->setPixel(x_bl, y_bl, this->getPixel(x_bl, y_bl) + glm::dvec3(5, 5,))
+	return ( bl_res+ br_res + tl_res + tr_res) / 4.0;
+}
 glm::dvec3 RayTracer::superSamplePixel(int i, int j)
 {
 	/*
@@ -356,8 +403,8 @@ int RayTracer::aaImage()
 	{
 		for (int y = 0; y < buffer_height; ++y)
 		{
-
-			glm::dvec3 color = this->superSamplePixel(x, y);
+			glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
+			// glm::dvec3 color = this->superSamplePixel(x, y);
 			this->setPixel(x, y, color);
 		}
 	}

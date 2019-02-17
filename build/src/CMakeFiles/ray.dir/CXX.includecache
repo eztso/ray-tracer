@@ -33,6 +33,8 @@ string.h
 -
 iostream
 -
+thread
+-
 fstream
 -
 

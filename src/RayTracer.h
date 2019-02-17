@@ -41,6 +41,7 @@ public:
 	double aspectRatio();
 
 	void traceImage(int w, int h);
+	glm::dvec3 adaptiveSS(double x_bl, double y_bl, double x_tr, double y_tr, int depth);
 	glm::dvec3 superSamplePixel(int i, int j);
 	int aaImage();
 	bool checkRender();

@@ -125,7 +125,6 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 
 
 		double coefficient = 1.0 / ((x_c - x_f) * (y_c - y_f));
-		std::cout << x_c - x_f << std::endl;
 		glm::dvec2 x_diff(x_c - x, x - x_f);
 		glm::dvec2 y_diff(y_c - y, y - y_f);
 

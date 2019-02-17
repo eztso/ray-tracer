@@ -11,7 +11,6 @@ glm::dvec3 CubeMap::getColor(ray r) const
 	// FIXME: Implement Cube Map here
 	glm::dvec3 dir = r.getDirection();
 	double x = dir[0], y = dir[1], z = dir[2];
-	std::cout << x << ' ' << y <<' ' << z << std::endl;
 
 	double absX = std::abs(x);
 	double absY = std::abs(y);
