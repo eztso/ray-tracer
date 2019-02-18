@@ -74,7 +74,8 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		glm::dvec3 diffuse = kd(i)* tmp;
 
 		// check if object is transparent?
-		glm::dvec3 spec = !going_in ? glm::dvec3(0, 0, 0) : ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
+		glm::dvec3 spec = ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
+		// glm::dvec3 spec = !going_in ? glm::dvec3(0, 0, 0) : ks(i) * pow(max(glm::dot(V,R),0.0), shininess(i));
 		color += light_color * (diffuse + spec) * light->distanceAttenuation(p);
 	}
 
