@@ -37,6 +37,10 @@ thread
 -
 fstream
 -
+future
+-
+atomic
+-
 
 /u/michael/CS378h/ray/src/RayTracer.h
 time.h

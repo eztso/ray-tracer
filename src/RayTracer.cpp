@@ -20,7 +20,8 @@
 #include <iostream>
 #include <thread>
 #include <fstream>
-
+#include <future>
+#include <atomic>
 using namespace std;
 extern TraceUI* traceUI;
 
@@ -246,6 +247,7 @@ bool RayTracer::loadScene(const char* fn)
 		return false;
 	scene->buildKdTree();
 	// std::cout << "Scene Loaded" <<std::endl;
+	// std::cout << std::thread::hardware_concurrency()<<std::endl;
 	return true;
 }
 
@@ -305,15 +307,27 @@ void RayTracer::traceImage(int w, int h)
 	// 	this->aaImage();
 	// }
 
-
-	// aa image is called from UI if aaSwitch, so don't need it above
-	for (int x = 0; x < w; ++x)
+	// https://medium.com/@phostershop/solving-multithreaded-raytracing-issues-with-c-11-7f018ecd76fa
+	std::size_t max = buffer_width * buffer_height;
+	std::size_t cores = std::thread::hardware_concurrency();
+	volatile std::atomic<std::size_t> count(0);
+	std::vector<std::future<void>> future_vector;
+	while (cores--)
 	{
-		for (int y = 0; y < h; ++y)
-		{
-			glm::dvec3 color = this->tracePixel(x, y);
-			this->setPixel(x, y, color);
-		}
+	    future_vector.emplace_back(
+	        std::async([&]()
+	        {
+	            while (true)
+	            {
+	                std::size_t index = count++;
+	                if (index >= max)
+	                    break;
+	                std::size_t x = index % buffer_width;
+	                std::size_t y = index / buffer_width;
+					glm::dvec3 color = this->tracePixel(x, y);
+					this->setPixel(x, y, color);
+	            }
+	        }));
 	}
 }
 
@@ -398,16 +412,28 @@ int RayTracer::aaImage()
 	//
 	// TIP: samples and aaThresh have been synchronized with TraceUI by
 	//      RayTracer::traceSetup() function
-
-	// super sample every pixel
-	for (int x = 0; x < buffer_width; ++x)
+	// https://medium.com/@phostershop/solving-multithreaded-raytracing-issues-with-c-11-7f018ecd76fa
+	std::size_t max = buffer_width * buffer_height;
+	std::size_t cores = std::thread::hardware_concurrency();
+	volatile std::atomic<std::size_t> count(0);
+	std::vector<std::future<void>> future_vector;
+	while (cores--)
 	{
-		for (int y = 0; y < buffer_height; ++y)
-		{
-			glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
-			// glm::dvec3 color = this->superSamplePixel(x, y);
-			this->setPixel(x, y, color);
-		}
+	    future_vector.emplace_back(
+	        std::async([&]()
+	        {
+	            while (true)
+	            {
+	                std::size_t index = count++;
+	                if (index >= max)
+	                    break;
+	                std::size_t x = index % buffer_width;
+	                std::size_t y = index / buffer_width;
+					glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
+					// glm::dvec3 color = this->superSamplePixel(x, y);
+					this->setPixel(x, y, color);
+	            }
+	        }));
 	}
 	return 0;
 }
