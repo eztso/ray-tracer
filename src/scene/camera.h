@@ -22,6 +22,7 @@ public:
 	const glm::dvec3& getLook() const		{ return look; }
 	const glm::dvec3& getU() const			{ return u; }
 	const glm::dvec3& getV() const			{ return v; }
+    const glm::dvec3& getUpdir() const { return updir; }
 private:
     glm::dmat3 m;                     // rotation matrix
     double normalizedHeight;    // dimensions of image place at unit dist from eye
@@ -29,6 +30,7 @@ private:
     
     void update();              // using the above three values calculate look,u,v
     
+    glm::dvec3 updir;
     glm::dvec3 eye;
     glm::dvec3 look;                  // direction to look
     glm::dvec3 u,v;                   // u and v in the 

@@ -249,6 +249,11 @@ bool RayTracer::loadScene(const char* fn)
 	scene->buildKdTree();
 	// std::cout << "Scene Loaded" <<std::endl;
 	// std::cout << std::thread::hardware_concurrency()<<std::endl;
+	// std::cout << scene->getCamera().getU()<<std::endl;
+	// std::cout << scene->getCamera().getV()<<std::endl;
+	// auto tmp = glm::normalize(glm::cross(scene->getCamera().getV(),scene->getCamera().getU()));
+	// std::cout <<tmp<<std::endl ;
+
 	return true;
 }
 
@@ -292,7 +297,8 @@ void RayTracer::traceImage(int w, int h)
 {
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
-
+	// this->SIRD();
+	// return;
 	// YOUR CODE HERE*
 	// FIXME: Start one or more threads for ray tracing
 	//
@@ -330,6 +336,62 @@ void RayTracer::traceImage(int w, int h)
 	            }
 	        }));
 	}
+}
+
+void RayTracer::SIRD()
+{
+	const auto& v_dir = scene->getCamera().getLook();
+	const auto& updir = scene->getCamera().getUpdir();
+	const double angle_of_rotation = 0.0349066;
+	auto left_view = v_dir*glm::cos(angle_of_rotation) + (glm::cross(updir, v_dir)*glm::sin(angle_of_rotation) + updir*(glm::dot(updir, v_dir))*(1 - glm::cos(angle_of_rotation)));
+	auto right_view = v_dir*glm::cos(-angle_of_rotation) + (glm::cross(updir, v_dir)*glm::sin(-angle_of_rotation) + updir*(glm::dot(updir, v_dir))*(1 - glm::cos(-angle_of_rotation)));
+
+	// glm::mat3 c_mat = {0.4243, 0.3105, 0.1657,
+	// 				   0.2492, 0.6419, 0.1089,
+	// 				   0.0265, 0.1225, 0.8614};
+
+ //  	glm::mat3 right_col = {0.0153 , 0.1092, 0.1171, 
+ //  						   0.0176,  0.3088,  0.0777, 
+ //  						   0.0201,  0.1016,  0.6546};
+
+	// glm::mat3 left_col =  {0.1840,  0.0179,  0.0048, 
+	// 					   0.0876,  0.0118,  0.0018, 
+	// 					   0.0005,  0.0012,  0.0159};
+
+	// right_col = right_col * c_mat;
+	// left_col = left_col * c_mat;
+
+  	glm::mat3 right_col = { 0, 0, 0,
+  							0, 1.0, 0,
+  							0, 0, 1.0};
+
+	glm::mat3 left_col =  {1.0,  0,  0, 
+						   0,  0,  0, 
+						   0,  0,  0};		   
+	scene->getCamera().setLook(left_view, updir);
+	for (int x = 0; x < buffer_width; ++x)
+	{
+		for (int y = 0; y < buffer_height; ++y)
+		{
+			glm::dvec3 pixel_col = this->getPixel(x, y);
+			glm::dvec3 color = this->tracePixel(x, y);
+			glm::dvec3 scaled_col = (left_col * color);
+			this->setPixel(x, y, pixel_col + scaled_col);
+		}
+	}
+
+	scene->getCamera().setLook(right_view, updir);
+	for (int x = 0; x < buffer_width; ++x)
+	{
+		for (int y = 0; y < buffer_height; ++y)
+		{
+			glm::dvec3 pixel_col = this->getPixel(x, y);
+			glm::dvec3 color = this->tracePixel(x, y);
+			glm::dvec3 scaled_col = (right_col * color);
+			this->setPixel(x, y, pixel_col + scaled_col);
+		}
+	}
+	scene->getCamera().setLook(v_dir, updir);
 }
 
 /*

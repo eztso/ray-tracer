@@ -70,7 +70,7 @@ Camera::setLook(const glm::dvec3 &viewDir, const glm::dvec3 &upDir)
 
     //m = Mat3d( x[0],x[1],x[2],y[0],y[1],y[2],z[0],z[1],z[2] ).transpose();
     m = glm::dmat3x3(x, y, z); // Do we need to transpose?
-
+    this->updir = upDir;
     update();
 }
 
