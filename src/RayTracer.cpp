@@ -345,32 +345,10 @@ void RayTracer::SIRD()
 {
 	const auto& v_dir = scene->getCamera().getLook();
 	const auto& updir = scene->getCamera().getUpdir();
-	const double angle_of_rotation = 0.0349066;
+	const double angle_of_rotation = 0.00872665;
+
 	auto left_view = v_dir*glm::cos(angle_of_rotation) + (glm::cross(updir, v_dir)*glm::sin(angle_of_rotation) + updir*(glm::dot(updir, v_dir))*(1 - glm::cos(angle_of_rotation)));
-	auto right_view = v_dir*glm::cos(-angle_of_rotation) + (glm::cross(updir, v_dir)*glm::sin(-angle_of_rotation) + updir*(glm::dot(updir, v_dir))*(1 - glm::cos(-angle_of_rotation)));
-
-	// glm::mat3 c_mat = {0.4243, 0.3105, 0.1657,
-	// 				   0.2492, 0.6419, 0.1089,
-	// 				   0.0265, 0.1225, 0.8614};
-
- //  	glm::mat3 right_col = {0.0153 , 0.1092, 0.1171, 
- //  						   0.0176,  0.3088,  0.0777, 
- //  						   0.0201,  0.1016,  0.6546};
-
-	// glm::mat3 left_col =  {0.1840,  0.0179,  0.0048, 
-	// 					   0.0876,  0.0118,  0.0018, 
-	// 					   0.0005,  0.0012,  0.0159};
-
-	// right_col = right_col * c_mat;
-	// left_col = left_col * c_mat;
-
-  	glm::mat3 right_col = { 0, 0, 0,
-  							0, 1.0, 0,
-  							0, 0, 1.0};
-
-	glm::mat3 left_col =  {1.0,  0,  0, 
-						   0,  0,  0, 
-						   0,  0,  0};		   
+	auto right_view = v_dir*glm::cos(-angle_of_rotation) + (glm::cross(updir, v_dir)*glm::sin(-angle_of_rotation) + updir*(glm::dot(updir, v_dir))*(1 - glm::cos(-angle_of_rotation)));   
 	scene->getCamera().setLook(left_view, updir);
 	for (int x = 0; x < buffer_width; ++x)
 	{
@@ -378,8 +356,9 @@ void RayTracer::SIRD()
 		{
 			glm::dvec3 pixel_col = this->getPixel(x, y);
 			glm::dvec3 color = this->tracePixel(x, y);
-			glm::dvec3 scaled_col = (left_col * color);
-			this->setPixel(x, y, pixel_col + scaled_col);
+			color[1] = 0; color[2] = 0;
+			// glm::dvec3 scaled_col = (left_col * color);
+			this->setPixel(x, y, pixel_col + color);
 		}
 	}
 
@@ -390,8 +369,8 @@ void RayTracer::SIRD()
 		{
 			glm::dvec3 pixel_col = this->getPixel(x, y);
 			glm::dvec3 color = this->tracePixel(x, y);
-			glm::dvec3 scaled_col = (right_col * color);
-			this->setPixel(x, y, pixel_col + scaled_col);
+			color[0] = 0;
+			this->setPixel(x, y, pixel_col + color);
 		}
 	}
 	scene->getCamera().setLook(v_dir, updir);
