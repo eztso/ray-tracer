@@ -47,6 +47,7 @@ public:
 
 	Fl_Check_Button*	m_debuggingDisplayCheckButton;
 	Fl_Check_Button*	m_aaCheckButton;
+	Fl_Check_Button*	m_adaptiveSSCheckButton;
 	Fl_Check_Button*	m_kdCheckButton;
 	Fl_Check_Button*	m_cubeMapCheckButton;
 	Fl_Check_Button*	m_ssCheckButton;

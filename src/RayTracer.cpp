@@ -22,6 +22,7 @@
 #include <fstream>
 #include <future>
 #include <atomic>
+#include <random>
 using namespace std;
 extern TraceUI* traceUI;
 
@@ -378,6 +379,40 @@ glm::dvec3 RayTracer::adaptiveSS(double x_bl, double y_bl, double x_tr, double y
 	// this->setPixel(x_bl, y_bl, this->getPixel(x_bl, y_bl) + glm::dvec3(25 / 255.0, 25 / 255.0, 25 / 255.0));
 	return ( bl_res+ br_res + tl_res + tr_res) / 4.0;
 }
+
+glm::dvec3 RayTracer::jitteredSS(int i, int j)
+{
+	/*
+		input: pixel coords
+		performs supersampling on input pixel
+	*/
+	double subPixelXsize = (1.0 / (buffer_width * samples));
+	double subPixelYsize = (1.0 / (buffer_height * samples));
+
+	double x = double(i)/double(buffer_width);
+	double y = double(j)/double(buffer_height);
+
+	std::random_device rd;
+	std::mt19937 gen(rd()); // Create and seed the generator
+	std::normal_distribution<> d(0, 1); // Create distribution
+
+	glm::dvec3 color(0,0,0);
+	for (int sampX = 0; sampX < samples; ++sampX)
+	{
+		for (int sampY = 0; sampY < samples; ++sampY)
+		{
+			auto x_rand_normal = glm::clamp(d(gen), -3.0, 3.0 );
+			auto y_rand_normal = glm::clamp(d(gen), -3.0, 3.0 );
+			color+=trace((double) (x) + (sampX + 0.5 + (x_rand_normal / 6)) * subPixelXsize, 
+						 (double)(y) + (sampY + 0.5 + (y_rand_normal / 6)) * subPixelYsize);
+			/* code */
+		}
+	}
+	// average the color
+	color/=(samples * samples);
+	return color;
+}
+
 glm::dvec3 RayTracer::superSamplePixel(int i, int j)
 {
 	/*
@@ -429,8 +464,9 @@ int RayTracer::aaImage()
 	                    break;
 	                std::size_t x = index % buffer_width;
 	                std::size_t y = index / buffer_width;
-					glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
+					// glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
 					// glm::dvec3 color = this->superSamplePixel(x, y);
+					glm::dvec3 color = this->jitteredSS(x, y);
 					this->setPixel(x, y, color);
 	            }
 	        }));
