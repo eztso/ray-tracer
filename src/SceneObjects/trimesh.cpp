@@ -129,10 +129,15 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
     auto m1 = (1.0 - m2 - m3);
 
     // verify intersect using bary coords
-    if (m1 < RAY_EPSILON || m1 > 1) return false;
-    if (m2 < RAY_EPSILON || m2 > 1) return false;
-    if (m3 < RAY_EPSILON || m3 > 1) return false;
-    if ((m2 + m3) < RAY_EPSILON || (m2 + m3) > 1) return false;
+    bool invalid_intersect =   (m1 < RAY_EPSILON || m1 > 1) 
+    						|| (m2 < RAY_EPSILON || m2 > 1) 
+    						|| (m3 < RAY_EPSILON || m3 > 1) 
+    						|| ((m2 + m3) < RAY_EPSILON || (m2 + m3) > 1);
+    // if (m1 < RAY_EPSILON || m1 > 1) return false;
+    // if (m2 < RAY_EPSILON || m2 > 1) return false;
+    // if (m3 < RAY_EPSILON || m3 > 1) return false;
+    // if ((m2 + m3) < RAY_EPSILON || (m2 + m3) > 1) return false;
+    if(invalid_intersect) return false;
 
     // set intersect info
 	i.setObject(this);
