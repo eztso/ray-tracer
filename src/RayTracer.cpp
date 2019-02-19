@@ -297,6 +297,9 @@ void RayTracer::traceImage(int w, int h)
 {
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
+	if(traceUI->sirdSwitch())
+		this->SIRD();
+		return;
 	// this->SIRD();
 	// return;
 	// YOUR CODE HERE*
@@ -441,6 +444,10 @@ glm::dvec3 RayTracer::adaptiveSS(double x_bl, double y_bl, double x_tr, double y
 	// this->setPixel(x_bl, y_bl, this->getPixel(x_bl, y_bl) + glm::dvec3(25 / 255.0, 25 / 255.0, 25 / 255.0));
 	return ( bl_res+ br_res + tl_res + tr_res) / 4.0;
 }
+glm::dvec3 RayTracer::doAdaptive(double x, double y)
+{
+	return this->adaptiveSS(x, y, x + 1, y + 1, 0);
+}
 
 glm::dvec3 RayTracer::jitteredSS(int i, int j)
 {
@@ -514,6 +521,7 @@ int RayTracer::aaImage()
 	std::size_t cores = std::thread::hardware_concurrency();
 	volatile std::atomic<std::size_t> count(0);
 	std::vector<std::future<void>> future_vector;
+	// auto SS = traceUI->adaptiveSSSwitch() ? doAdaptive : traceUI->jitterSwitch() ? 
 	while (cores--)
 	{
 	    future_vector.emplace_back(
@@ -526,9 +534,16 @@ int RayTracer::aaImage()
 	                    break;
 	                std::size_t x = index % buffer_width;
 	                std::size_t y = index / buffer_width;
-					// glm::dvec3 color = this->adaptiveSS(x, y, x + 1, y + 1, 0);
-					// glm::dvec3 color = this->superSamplePixel(x, y);
-					glm::dvec3 color = this->jitteredSS(x, y);
+
+	                glm::dvec3 color;
+	                if (traceUI->adaptiveSSSwitch())
+						color = this->doAdaptive(x, y);
+					else if (traceUI->jitterSwitch())
+					{
+						color = this->jitteredSS(x, y);
+					}
+					else
+						color = this->superSamplePixel(x, y);
 					this->setPixel(x, y, color);
 	            }
 	        }));

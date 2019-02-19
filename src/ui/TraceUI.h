@@ -44,6 +44,11 @@ public:
 	bool aaSwitch() const { return m_antiAlias; }
 	bool kdSwitch() const { return m_kdTree; }
 	bool shadowSw() const { return m_shadows; }
+	
+	bool jitterSwitch() const { return m_jitter; }
+	bool adaptiveSSSwitch() const { return m_adaptive; }
+	bool sirdSwitch() const { return m_sird; }
+
 	bool smShadSw() const { return m_smoothshade; }
 	bool bkFaceSw() const { return m_backface; }
 	bool cubeMap() const { return m_usingCubeMap && cubemap; }
@@ -97,7 +102,6 @@ public:
 	                              string& pdir);
 protected:
 	RayTracer* raytracer = nullptr;
-
 	int m_nSize = 512;        // Size of the traced image
 	int m_nDepth = 0;         // Max depth of recursion
 	int m_nThreshold = 0;     // Threshold for interpolation within block
@@ -115,6 +119,8 @@ protected:
 	// reasons.
 	bool m_displayDebuggingInfo = false;
 	bool m_antiAlias = false;    // Is antialiasing on?
+	bool m_adaptive = false;
+	bool m_jitter = false;
 	bool m_kdTree = true;        // use kd-tree?
 	bool m_shadows = true;       // compute shadows?
 	bool m_smoothshade = true;   // turn on/off smoothshading?
@@ -122,7 +128,7 @@ protected:
 	bool m_usingCubeMap = false; // render with cubemap
 	bool m_internalReflection = false; // Enable reflection inside a translucent object.
 	bool m_backfaceSpecular = false; // Enable specular component even seeing through the back of a translucent object.
-
+	bool m_sird = false;
 	std::unique_ptr<CubeMap> cubemap;
 
 	void loadFromJson(const char* file);
