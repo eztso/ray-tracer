@@ -313,10 +313,9 @@ void RayTracer::traceImage(int w, int h)
 	// {
 	// 	this->aaImage();
 	// }
-
 	// https://medium.com/@phostershop/solving-multithreaded-raytracing-issues-with-c-11-7f018ecd76fa
 	std::size_t max = buffer_width * buffer_height;
-	std::size_t cores = std::thread::hardware_concurrency();
+	std::size_t cores = threads;
 	volatile std::atomic<std::size_t> count(0);
 	std::vector<std::future<void>> future_vector;
 	while (cores--)
@@ -492,9 +491,10 @@ int RayTracer::aaImage()
 	//
 	// TIP: samples and aaThresh have been synchronized with TraceUI by
 	//      RayTracer::traceSetup() function
+
 	// https://medium.com/@phostershop/solving-multithreaded-raytracing-issues-with-c-11-7f018ecd76fa
 	std::size_t max = buffer_width * buffer_height;
-	std::size_t cores = std::thread::hardware_concurrency();
+	std::size_t cores = threads;
 	volatile std::atomic<std::size_t> count(0);
 	std::vector<std::future<void>> future_vector;
 	// auto SS = traceUI->adaptiveSSSwitch() ? doAdaptive : traceUI->jitterSwitch() ? 
