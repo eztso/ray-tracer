@@ -297,9 +297,10 @@ void RayTracer::traceImage(int w, int h)
 {
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
-	if(traceUI->sirdSwitch())
+	if(traceUI->sirdSwitch()){
 		this->SIRD();
 		return;
+	}
 	// this->SIRD();
 	// return;
 	// YOUR CODE HERE*
