@@ -15,6 +15,7 @@ Camera::Camera()
     u = glm::dvec3( 1,0,0 );
     v = glm::dvec3( 0,1,0 );
     look = glm::dvec3( 0,0,-1 );
+    updir = glm::dvec3(0, 1, 0);
     m = glm::dmat3x3(1.0);
 }
 
