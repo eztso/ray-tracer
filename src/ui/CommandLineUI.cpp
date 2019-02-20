@@ -104,6 +104,10 @@ int CommandLineUI::run()
 			raytracer->aaImage();
 			raytracer->waitRender();
 		}
+		if (sirdSwitch()) {
+			raytracer->SIRD();
+			raytracer->waitRender();
+		}
 
 		end = clock();
 

@@ -297,10 +297,6 @@ void RayTracer::traceImage(int w, int h)
 {
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
-	if(traceUI->sirdSwitch()){
-		this->SIRD();
-		return;
-	}
 	// this->SIRD();
 	// return;
 	// YOUR CODE HERE*
@@ -355,11 +351,11 @@ void RayTracer::SIRD()
 	{
 		for (int y = 0; y < buffer_height; ++y)
 		{
-			glm::dvec3 pixel_col = this->getPixel(x, y);
+			// glm::dvec3 pixel_col = this->getPixel(x, y);
 			glm::dvec3 color = this->tracePixel(x, y);
 			color[1] = 0; color[2] = 0;
 			// glm::dvec3 scaled_col = (left_col * color);
-			this->setPixel(x, y, pixel_col + color);
+			this->setPixel(x, y, color);
 		}
 	}
 
