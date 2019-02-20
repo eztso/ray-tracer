@@ -111,7 +111,7 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 	{
 		return glm::dvec3(1.0,1.0,1.0);
 	}
-	double x = coord[0] * width, y = coord[1] * height;
+	double x = coord[0] * (width -1 ), y = coord[1] * (height-1);
 
 	double x_f = std::floor(x);
 	double y_f = std::floor(y);
