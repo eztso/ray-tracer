@@ -46,3 +46,28 @@ translate( 0, 0, 2,
 		}
 	}
 ) )
+
+translate( 0, 0, 4,
+	scale( 2,
+	sphere {
+		material = { 
+			specular = (0.8, 0.8, 0);
+			reflective = (0.7, 0.7, 0);
+			diffuse = (0.2, 0.2, 0);
+			shininess = 256.0;
+		}
+	}
+) )
+
+
+translate( 0, 0, 8,
+	scale( 2,
+	sphere {
+		material = { 
+			specular = (0.8, 0.8, 0);
+			reflective = (0.7, 0.7, 0);
+			diffuse = (0.2, 0.2, 0);
+			shininess = 256.0;
+		}
+	}
+) )
